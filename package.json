@@ -8,15 +8,28 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@algolia/client-search": "^4.11.0",
+    "@hookform/error-message": "^2.0.0",
+    "@hookform/resolvers": "^2.8.2",
+    "algoliasearch": "^4.11.0",
+    "firebase": "^9.2.0",
+    "instantsearch.css": "^7.4.5",
     "next": "12.0.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.18.1",
+    "react-instantsearch-dom": "^6.15.0",
+    "react-query": "^3.31.0",
+    "react-select": "^5.2.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "16.11.6",
     "@types/react": "17.0.33",
+    "@types/react-query": "^1.2.9",
     "eslint": "7.32.0",
     "eslint-config-next": "12.0.2",
-    "typescript": "4.4.4"
+    "react-query-devtools": "^2.6.3",
+    "typescript": "^4.4.4"
   }
 }
