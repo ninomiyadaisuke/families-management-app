@@ -1,0 +1,23 @@
+@import '../variables.scss';
+
+.container {
+  max-width: 100%;
+}
+
+.main {
+  margin: 0;
+  padding-top: 64px;
+  position: relative;
+}
+
+.page {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1056px;
+  padding: 16px;
+  width: 100%;
+
+  @include mq('xl') {
+    max-width: 1312px;
+  }
+}
