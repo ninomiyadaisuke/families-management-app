@@ -12,7 +12,8 @@
     "build-public": "cpx \"src/public/**/*.*\" \"public\" -C",
     "test": "eslint --fix -f codeframe.js './src/**/*.ts' './src/**/*.tsx'",
     "pretty-quick": "pretty-quick",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@algolia/client-search": "^4.11.0",
