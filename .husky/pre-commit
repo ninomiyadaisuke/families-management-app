@@ -1,0 +1,16 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+if [ $(git diff --name-only --cached './src/**/*.ts' './src/**/*.tsx') ]
+then
+#run ts prettier
+npm run ts-prettier
+#run ts linter
+npm run lint-fix
+fi
+
+if [ $(git diff --name-only --cached './src/**/*.css' './src/**/*.scss' './src/**/*.sass') ]
+then
+#run ts linter
+npm run style-prettier
+fi
