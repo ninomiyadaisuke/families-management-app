@@ -2,10 +2,17 @@
   "name": "families-management-app",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev src",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "style:lint": "eslint --fix './src/**/*.{js,jsx,ts,tsx}'",
+    "style:check": "prettier --check './src/**/*.{js,jsx,ts,tsx}'",
+    "style:write": "prettier --write './src/**/*.{js,jsx,ts,tsx}'",
+    "build-public": "cpx \"src/public/**/*.*\" \"public\" -C",
+    "test": "eslint --fix -f codeframe.js './src/**/*.ts' './src/**/*.tsx'",
+    "pretty-quick": "pretty-quick",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@algolia/client-search": "^4.11.0",
@@ -34,6 +41,7 @@
     "eslint-config-prettier": "^8.3.0",
     "firebase": "^9.2.0",
     "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
     "prettier": "^2.4.1",
     "react-query-devtools": "^2.6.3",
     "sass": "^1.43.4",
@@ -42,5 +50,11 @@
     "webpack": "^5.61.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.4.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix -f table.js"
+    ]
   }
 }
