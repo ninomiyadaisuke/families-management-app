@@ -1,0 +1,45 @@
+$main: #094067;
+$sub: #2B4B62;
+$black: #000000;
+$light-grey: #CECECE;
+$primary-main: #3DA9FC;
+$secondary-main : #EF4565;
+$bg-white:#FFFFFE;
+$bg-bule: #D8EEFE;
+
+$link-light: #605eff;
+$link-main: #0033cc;
+$link-dark: #000c9a;
+
+$breakpoints: (
+  'xxs': 'screen and (min-width: 440px)',
+  'xs': 'screen and (min-width: 560px)',
+  'sm': 'screen and (min-width: 680px)',
+  'md': 'screen and (min-width: 768px)',
+  'lg': 'screen and (min-width: 1024px)',
+  'xl': 'screen and (min-width: 1440px)',
+) !default;
+
+// 初期値はlg(tablet screen size)
+@mixin mq($breakpoint: lg) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// プレイスホルダーの色指定
+@mixin placeholder($color) {
+  &::placeholder {
+    color: $color !important;
+  }
+
+  // IE
+  &:-ms-input-placeholder {
+    color: $color !important;
+  }
+
+  // Edge
+  &::-ms-input-placeholder {
+    color: $color !important;
+  }
+}
