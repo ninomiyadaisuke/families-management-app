@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev src",
-    "build": "next build",
+    "build": "next build src",
     "start": "next start",
     "lint": "next lint",
     "style:lint": "eslint --fix './src/**/*.{js,jsx,ts,tsx}'",
