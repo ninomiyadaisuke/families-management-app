@@ -6,12 +6,9 @@ type Props = {
 };
 
 const Loading: FC<Props> = (props) => {
-  const { isLoading } = props;
-  if (isLoading) {
-    return <div className={styles.spinner}></div>;
-  } else {
-    return <></>;
-  }
+  const { isLoading = false } = props;
+
+  return <>{isLoading && <div className={styles.spinner}></div>}</>;
 };
 
 export default Loading;

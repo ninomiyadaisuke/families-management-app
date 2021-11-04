@@ -1,4 +1,5 @@
 @import '../../variables.scss';
+
 .spinner {
   width: 32px;
   height: 32px;
@@ -6,10 +7,10 @@
   border: 4px #ddd solid;
   border-top: 4px $main solid;
   border-radius: 50%;
-  animation: sp-anime 1.0s infinite linear;
+  animation: spin-anime 1.0s infinite linear;
 }
 
-@keyframes sp-anime {
+@keyframes spin-anime {
   100% { 
     transform: rotate(360deg); 
   }
