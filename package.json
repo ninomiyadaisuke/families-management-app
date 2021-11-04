@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "next dev src",
     "build": "next build src",
-    "start": "next start",
+    "start": "next start src",
     "lint": "next lint",
     "style:lint": "eslint --fix './src/**/*.{js,jsx,ts,tsx}'",
     "style:check": "prettier --check './src/**/*.{js,jsx,ts,tsx}'",
