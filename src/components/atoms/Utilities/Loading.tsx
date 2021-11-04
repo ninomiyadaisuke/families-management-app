@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import styles from 'styles/components/atoms/loading.module.scss';
 
 type Props = {
