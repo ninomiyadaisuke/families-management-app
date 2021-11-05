@@ -5,9 +5,15 @@ import { useForm } from 'react-hook-form';
 import { Layout } from 'components/layout';
 import { CheckBox } from 'components/atoms/Input';
 
+const defaultValues = {
+  login_type: false,
+};
+
 const Sample: NextPage = () => {
   const [checkData, setCheckData] = useState('');
-  const { handleSubmit, control } = useForm();
+  const { handleSubmit, control } = useForm({
+    defaultValues: defaultValues,
+  });
 
   const onSubmit = (data: any) => {
     setCheckData(JSON.stringify(data));
