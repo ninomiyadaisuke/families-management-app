@@ -1,0 +1,16 @@
+import { VFC } from 'react';
+
+import styles from 'styles/components/atoms/width_spacer.module.scss';
+
+type Props = {
+  size: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+};
+
+const WidthSpacer: VFC<Props> = (props) => {
+  const { size } = props;
+  const spacerClass = 'width_spacer-' + size;
+
+  return <div className={styles[spacerClass]} />;
+};
+
+export default WidthSpacer;
