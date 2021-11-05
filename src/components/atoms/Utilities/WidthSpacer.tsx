@@ -3,7 +3,7 @@ import { VFC } from 'react';
 import styles from 'styles/components/atoms/width_spacer.module.scss';
 
 type Props = {
-  size: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 };
 
 const WidthSpacer: VFC<Props> = (props) => {
