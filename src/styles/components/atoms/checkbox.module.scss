@@ -1,0 +1,35 @@
+@import '../../variables.scss';
+
+.checkbox{
+  input {
+    display: none;
+  }
+  label{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+  }
+  label::before{
+    content: "";
+    display: block;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 26px;
+    border: 2px solid #5F6C7B;
+    border-radius: 4px;
+    
+  }
+  input:checked + label::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: 9px;
+    width: 7px;
+    height: 10px;
+    transform: rotate(45deg);
+    border-bottom: 2px solid $main;
+    border-right: 2px solid $main;
+  }
+}
