@@ -13,8 +13,8 @@ const CheckBox: VFC<Props> = (props) => {
   const { field } = useController({ name, control });
   return (
     <div className={styles.checkbox}>
-      <input id="1" type="checkbox" {...field} />
-      <label htmlFor="1" />
+      <input id="id" type="checkbox" {...field} />
+      <label htmlFor="id" />
     </div>
   );
 };
