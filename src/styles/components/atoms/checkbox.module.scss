@@ -13,7 +13,6 @@
     border: 3px solid #366A8E;
     border-radius: 7px;
   }
-  
   input:checked + label::after{
     content: "";
     display: block;
