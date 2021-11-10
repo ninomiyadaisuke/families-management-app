@@ -16,7 +16,7 @@ const defaultValues = {
   relationship: '',
 };
 const Sample: NextPage = () => {
-  const { handleSubmit, control } = useForm({
+  const { handleSubmit, register } = useForm({
     defaultValues: defaultValues,
   });
   const [relationship, setRelationship] = useState('');
@@ -28,10 +28,10 @@ const Sample: NextPage = () => {
   return (
     <Layout pageTitle={'サンプル'}>
       <form style={{ width: '500px' }} onSubmit={handleSubmit(onSubmit)}>
-        <PrimarySelect name={'relationship'} control={control} options={options} label={'続柄を選択'} />
+        <PrimarySelect name={'relationship'} register={register} options={options} label={'続柄を選択'} />
         <button type="submit">送信</button>
+        <div>{relationship}</div>
       </form>
-      <div>{relationship}</div>
     </Layout>
   );
 };

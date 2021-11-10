@@ -1,30 +1,42 @@
-import React, { VFC } from 'react';
-import { useController, Control } from 'react-hook-form';
+import React, { VFC, useState } from 'react';
+import { UseFormRegister } from 'react-hook-form';
 
 import styles from 'styles/components/atoms/primary_select.module.scss';
 
 type Props = {
+  register: UseFormRegister<{ relationship: string }>;
   label: string;
-  name: string;
-  control: Control<any, object>;
+  name: 'relationship';
   options: { label: string; value: string }[];
 };
 
 const PrimarySelect: VFC<Props> = (props) => {
-  const { name, control, options, label } = props;
-  const { field } = useController({ name, control });
+  const { name, options, label, register } = props;
+  const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState(label);
 
   return (
     <div className={styles.select}>
-      <input type="radio" name="option" />
-      <i className={styles.arrow} />
-      <span className={styles.label}>{label}</span>
-      {options.map((option) => (
-        <label key={option.label} {...field}>
-          <input type="radio" value={option.value} name="option" />
-          <span className={styles.title}>{option.label}</span>
-        </label>
-      ))}
+      <div onClick={() => setIsOpen(!isOpen)}>
+        <i className={isOpen ? styles.select_arrowup : styles.select_arrowdown} />
+        <span className={styles.label}>{selected}</span>
+      </div>
+      {isOpen &&
+        options.map((option) => (
+          <label key={option.label}>
+            <input
+              onClick={() => {
+                setSelected(option.label);
+                setIsOpen(false);
+              }}
+              type="radio"
+              value={option.value}
+              name="option"
+              {...register(name)}
+            />
+            <span className={styles.title}>{option.label}</span>
+          </label>
+        ))}
     </div>
   );
 };
