@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NextPage } from 'next';
 import { Layout } from 'components/layout';
 import { PrimarySelect } from 'components/atoms/Input';
@@ -19,15 +19,19 @@ const Sample: NextPage = () => {
   const { handleSubmit, control } = useForm({
     defaultValues: defaultValues,
   });
+  const [relationship, setRelationship] = useState('');
 
-  const onSubmit = (data: any) => {};
+  const onSubmit = (data: any) => {
+    setRelationship(JSON.stringify(data));
+  };
 
   return (
     <Layout pageTitle={'サンプル'}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <PrimarySelect name={'relationship'} control={control} options={options} />
+      <form style={{ width: '500px' }} onSubmit={handleSubmit(onSubmit)}>
+        <PrimarySelect name={'relationship'} control={control} options={options} label={'続柄を選択'} />
         <button type="submit">送信</button>
       </form>
+      <div>{relationship}</div>
     </Layout>
   );
 };

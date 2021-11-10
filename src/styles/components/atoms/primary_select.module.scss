@@ -1,0 +1,96 @@
+@import '../../variables.scss';
+
+.select {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  color: #ffffff;
+  .arrow_common {
+    position: absolute;
+    right: 40px;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+  }
+  .arrowup:before {
+    @extend .arrow_common;
+    transform: rotate(315deg);
+    top: 22px;
+  }
+  .arrowdown:before {
+    @extend .arrow_common;
+    transform: rotate(135deg);
+    top: 18px;
+  }
+  .select_common {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #707070;
+  }
+  .label {
+    @extend .select_common;
+    background: #3da9fc;
+  }
+  .title {
+    @extend .select_common;
+    font-size: 16px;
+    background: #ffffff;
+    color: $main;
+  }
+  input {
+    &:checked ~ .arrowdown,
+    &:not(:checked) ~ .arrowup {
+      display: none;
+    }
+    &:checked ~ .arrowup,
+    &:not(:checked) ~ .arrowdown {
+      display: block;
+    }
+  }
+  input {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+    &:not(:checked) {
+      z-index: 4;
+      ~ label span {
+        display: none;
+      }
+    }
+  }
+  label {
+    span {
+      position: relative;
+      z-index: 2;
+      &:hover {
+        background: #e5e5e5;
+      }
+    }
+    input {
+      display: none;
+      &:checked ~ .title {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        display: block;
+        background: #3da9fc;
+        font-size: 20px;
+        color: #ffffff;
+        @extend .arrowdown;
+      }
+    }
+  }
+}
