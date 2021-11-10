@@ -43,16 +43,7 @@
     font-size: 16px;
     background: #ffffff;
     color: $main;
-  }
-  input {
-    &:checked ~ .arrowdown,
-    &:not(:checked) ~ .arrowup {
-      display: none;
-    }
-    &:checked ~ .arrowup,
-    &:not(:checked) ~ .arrowdown {
-      display: block;
-    }
+    border-top: none;
   }
   input {
     position: absolute;
@@ -64,6 +55,12 @@
     height: 100%;
     cursor: pointer;
     opacity: 0;
+    &:checked ~ .arrow {
+      @extend .arrowup;
+    }
+    &:not(:checked) ~ .arrow {
+      @extend .arrowdown;
+    }
     &:not(:checked) {
       z-index: 4;
       ~ label span {
@@ -73,8 +70,6 @@
   }
   label {
     span {
-      position: relative;
-      z-index: 2;
       &:hover {
         background: #e5e5e5;
       }
@@ -89,6 +84,7 @@
         background: #3da9fc;
         font-size: 20px;
         color: #ffffff;
+        border: 1px solid #707070;
         @extend .arrowdown;
       }
     }

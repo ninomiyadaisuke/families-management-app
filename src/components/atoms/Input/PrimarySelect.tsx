@@ -5,7 +5,7 @@ import styles from 'styles/components/atoms/primary_select.module.scss';
 
 type Props = {
   label: string;
-  name: 'relationship';
+  name: string;
   control: Control<any, object>;
   options: { label: string; value: string }[];
 };
@@ -16,12 +16,11 @@ const PrimarySelect: VFC<Props> = (props) => {
 
   return (
     <div className={styles.select}>
-      <input className={'test'} type="radio" name="option" />
-      <i className={styles.arrowup} />
-      <i className={styles.arrowdown} />
+      <input type="radio" name="option" />
+      <i className={styles.arrow} />
       <span className={styles.label}>{label}</span>
       {options.map((option) => (
-        <label className={styles.option} key={option.label} {...field}>
+        <label key={option.label} {...field}>
           <input type="radio" value={option.value} name="option" />
           <span className={styles.title}>{option.label}</span>
         </label>
