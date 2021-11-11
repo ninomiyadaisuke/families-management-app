@@ -1,0 +1,55 @@
+@import '../../variables.scss';
+
+.select {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  color: #ffffff;
+  .arrow {
+    position: absolute;
+    right: 40px;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: solid 2px #ffffff;
+    border-right: solid 2px #ffffff;
+    transform: rotate(315deg);
+    top: 22px;
+    &_down {
+      @extend .arrow;
+      transform: rotate(135deg);
+      top: 18px;
+    }
+  }
+  .select_common {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #707070;
+  }
+  .label {
+    @extend .select_common;
+    background: #3da9fc;
+  }
+  .title {
+    @extend .select_common;
+    font-size: 16px;
+    background: #ffffff;
+    color: $main;
+    border-top: none;
+  }
+  label {
+    span {
+      &:hover {
+        background: #e5e5e5;
+      }
+    }
+    input {
+      display: none;
+    }
+  }
+}
