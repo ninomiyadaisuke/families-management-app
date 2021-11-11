@@ -1,0 +1,11 @@
+@import '../../variables.scss';
+
+.icon {
+  &__base {
+    width: auto;
+    height: auto;
+  }
+  &__container {
+    display: flex;
+  }
+}
