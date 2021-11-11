@@ -1,6 +1,7 @@
 const path = require('path')
+const withLinaria = require('next-linaria');
 
-module.exports = {
+module.exports = withLinaria({
   reactStrictMode: true,
   distDir: '../.next',
   sassOptions: {
@@ -9,4 +10,7 @@ module.exports = {
   images: {
     domains: ['firebasestorage.googleapis.com'],
   },
-}
+  linaria:{
+    cacheDirectory:'./.next/cache/.linaria-cache',
+  }
+})
