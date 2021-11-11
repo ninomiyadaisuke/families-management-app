@@ -4,9 +4,9 @@ import { UseFormRegister } from 'react-hook-form';
 import styles from 'styles/components/atoms/primary_select.module.scss';
 
 type Props = {
-  register: UseFormRegister<{ relationship: string }>;
+  register: UseFormRegister<{ [key: string]: string }>;
   label: string;
-  name: 'relationship';
+  name: string;
   options: { label: string; value: string }[];
 };
 
@@ -18,7 +18,7 @@ const PrimarySelect: VFC<Props> = (props) => {
   return (
     <div className={styles.select}>
       <div onClick={() => setIsOpen(!isOpen)}>
-        <i className={isOpen ? styles.select_arrowup : styles.select_arrowdown} />
+        <i className={isOpen ? styles.arrow : styles.arrow_down} />
         <span className={styles.label}>{selected}</span>
       </div>
       {isOpen &&
