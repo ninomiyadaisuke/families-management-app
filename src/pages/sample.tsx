@@ -30,24 +30,26 @@ const Sample: NextPage = () => {
     <Layout pageTitle={'サンプル'}>
       <form onSubmit={handleSubmit(onSubmit)} style={{ width: '500px' }}>
         <PrimaryInput
+          path={'/user_icon.png'}
           placeholder={'苗字'}
           type={'text'}
-          mandatory={true}
+          status={errors.first_name ? 'error' : 'mandatory'}
           error={errors.first_name && errors.first_name.message}
           control={control}
           name={'first_name'}
         />
         <div style={{ margin: '30px' }} />
         <PrimaryInput
+          path={'/user_icon.png'}
           placeholder={'名前'}
           type={'text'}
           control={control}
           name={'last_name'}
-          mandatory={true}
+          status={errors.last_name ? 'error' : 'mandatory'}
           error={errors.last_name && errors.last_name.message}
         />
         <div style={{ margin: '30px' }} />
-        <PrimaryInput placeholder={'趣味'} type={'text'} control={control} name={'hobby'} />
+        <PrimaryInput path={'/user_icon.png'} placeholder={'趣味'} type={'text'} control={control} name={'hobby'} />
         <div style={{ margin: '30px' }} />
         <button>送信</button>
       </form>

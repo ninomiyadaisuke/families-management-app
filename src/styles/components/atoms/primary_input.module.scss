@@ -11,6 +11,8 @@
     border-bottom: 2px solid #7f7f7f;
     outline: none;
     transition: all 0.5s ease-in-out;
+    -webkit-appearance: none;
+    border-radius: 0;
     &:focus{
       border-bottom: 2px solid $primary-main;
     }
@@ -28,13 +30,11 @@
   &__icon {
     @extend .icon_postion;
     left: 0;
-    &_error,
-    &_mandatory {
+    &_status {
       @extend .icon_postion;
       right: 0;
     }
   }
-
   p {
     position: absolute;
     right: 0;

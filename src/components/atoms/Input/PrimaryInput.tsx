@@ -7,15 +7,16 @@ import styles from 'styles/components/atoms/primary_input.module.scss';
 
 type Props = {
   placeholder: string;
+  path: string;
   type: string;
   name: string;
   control: Control<any, object>;
   error?: string;
-  mandatory?: boolean;
+  status?: 'mandatory' | 'error' | 'none';
 };
 
 const PrimaryInput: VFC<Props> = (props) => {
-  const { placeholder, type, error = '', mandatory = false, name, control } = props;
+  const { placeholder, path, type, error = '', status = 'none', name, control } = props;
 
   const { field } = useController({ name, control });
 
@@ -23,22 +24,18 @@ const PrimaryInput: VFC<Props> = (props) => {
     <div className={styles.input}>
       <input type={type} placeholder={placeholder} {...field} />
       <div className={styles.input__icon}>
-        <IconArea path={'/user_icon.png'} height={16} width={16} />
+        <IconArea path={path} height={16} width={16} />
       </div>
-      {mandatory && !error ? (
-        <div className={styles.input__icon_mandatory}>
-          <IconArea path={'/mandatory_icon.png'} height={12} width={20} />
-        </div>
-      ) : (
-        error && (
-          <>
-            <div className={styles.input__icon_error}>
-              <IconArea path={'/error_icon.png'} height={16} width={16} />
-            </div>
-            <p>{error}</p>
-          </>
-        )
-      )}
+      <div className={styles.input__icon_status}>
+        {status !== 'none' && (
+          <IconArea
+            path={status === 'error' ? '/error_icon.png' : '/mandatory_icon.png'}
+            height={status === 'error' ? 16 : 12}
+            width={status === 'error' ? 16 : 20}
+          />
+        )}
+      </div>
+      <p>{error}</p>
     </div>
   );
 };
