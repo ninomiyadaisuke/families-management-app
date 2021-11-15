@@ -10,10 +10,10 @@
     border: none;
     border-bottom: 2px solid #7f7f7f;
     outline: none;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     -webkit-appearance: none;
     border-radius: 0;
-    &:focus{
+    &:focus {
       border-bottom: 2px solid $primary-main;
     }
     &::placeholder {
@@ -23,15 +23,14 @@
       box-shadow: 0 0 0px 1000px #ffffff inset;
     }
   }
-  .icon_postion {
+  &__icon,
+  &__icon_status {
     position: absolute;
-    top: 2px;
+    top: 2px; 
   }
   &__icon {
-    @extend .icon_postion;
     left: 0;
     &_status {
-      @extend .icon_postion;
       right: 0;
     }
   }

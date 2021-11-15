@@ -11,12 +11,12 @@ type Props = {
   type: string;
   name: string;
   control: Control<any, object>;
-  error?: string;
+  errorMessage?: string;
   status?: 'mandatory' | 'error' | 'none';
 };
 
 const PrimaryInput: VFC<Props> = (props) => {
-  const { placeholder, path, type, error = '', status = 'none', name, control } = props;
+  const { placeholder = '', path = '', type = '', errorMessage = '', status = 'none', name = '', control } = props;
 
   const { field } = useController({ name, control });
 
@@ -26,16 +26,16 @@ const PrimaryInput: VFC<Props> = (props) => {
       <div className={styles.input__icon}>
         <IconArea path={path} height={16} width={16} />
       </div>
-      <div className={styles.input__icon_status}>
-        {status !== 'none' && (
+      {status !== 'none' && (
+        <div className={styles.input__icon_status}>
           <IconArea
             path={status === 'error' ? '/error_icon.png' : '/mandatory_icon.png'}
             height={status === 'error' ? 16 : 12}
             width={status === 'error' ? 16 : 20}
           />
-        )}
-      </div>
-      <p>{error}</p>
+        </div>
+      )}
+      {errorMessage && <p>{errorMessage}</p>}
     </div>
   );
 };

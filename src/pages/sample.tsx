@@ -34,7 +34,7 @@ const Sample: NextPage = () => {
           placeholder={'苗字'}
           type={'text'}
           status={errors.first_name ? 'error' : 'mandatory'}
-          error={errors.first_name && errors.first_name.message}
+          errorMessage={errors.first_name && errors.first_name.message}
           control={control}
           name={'first_name'}
         />
@@ -46,7 +46,7 @@ const Sample: NextPage = () => {
           control={control}
           name={'last_name'}
           status={errors.last_name ? 'error' : 'mandatory'}
-          error={errors.last_name && errors.last_name.message}
+          errorMessage={errors.last_name && errors.last_name.message}
         />
         <div style={{ margin: '30px' }} />
         <PrimaryInput path={'/user_icon.png'} placeholder={'趣味'} type={'text'} control={control} name={'hobby'} />
