@@ -4,6 +4,12 @@
   position: relative;
   width: 100%;
   height: 100%;
+  &__container{
+    label {
+      font-size: 16px;
+      padding-left: 10px;
+    }
+  }
   input,
   textarea {
     transition: all 0.3s ease-in-out;
@@ -51,17 +57,14 @@
     font-size: 12px;
     color: $error-primary;
   }
-  &__container {
-    label {
-      font-size: 16px;
-      padding-left: 10px;
-    }
-    @include mq('md') {
+  @include mq('md') {
+    &__container {
       display: flex;
       label {
         font-size: 20px;
         width: 260px;
       }
     }
+    
   }
 }
