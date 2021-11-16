@@ -6,7 +6,7 @@ import { IconArea } from 'components/atoms/Images';
 import styles from 'styles/components/atoms/rounded_input.module.scss';
 
 type Props = {
-  maultiLine: boolean;
+  multiLine: boolean;
   rows?: number;
   placeholder: string;
   type?: string;
@@ -14,11 +14,12 @@ type Props = {
   control: Control<any, object>;
   errorMessage?: string;
   iconIncluded?: boolean;
+  label?: string;
 };
 
 const RoundedInput: VFC<Props> = (props) => {
   const {
-    maultiLine = false,
+    multiLine = false,
     rows = 1,
     placeholder = '',
     type = '',
@@ -26,33 +27,36 @@ const RoundedInput: VFC<Props> = (props) => {
     control,
     errorMessage = '',
     iconIncluded = false,
+    label = 'test',
   } = props;
   const { field } = useController({ name, control });
   return (
     <div className={styles.input}>
-      {maultiLine ? (
-        <textarea placeholder={placeholder} rows={rows} {...field} />
+      <label htmlFor={name}>{label}</label>
+      {multiLine ? (
+        <textarea id={name} placeholder={placeholder} rows={rows} {...field} />
       ) : (
         <>
-          <div>
-            <input
-              className={!iconIncluded ? styles.input__icon_none : ''}
-              type={type}
-              placeholder={placeholder}
-              {...field}
-            />
-          </div>
+          <input
+            id={name}
+            className={!iconIncluded ? styles.input__icon_none : ''}
+            type={type}
+            placeholder={placeholder}
+            {...field}
+          />
           {iconIncluded && (
             <div className={styles.input__icon}>
               <IconArea path={'/user_icon.png'} height={16} width={16} />
             </div>
           )}
           {errorMessage && (
-            <div className={styles.input__icon_error}>
-              <IconArea path={'/error_icon.png'} height={16} width={16} />
-            </div>
+            <>
+              <div className={styles.input__icon_error}>
+                <IconArea path={'/error_icon.png'} height={16} width={16} />
+              </div>
+              <p>{errorMessage}</p>
+            </>
           )}
-          {errorMessage && <p>{errorMessage}</p>}
         </>
       )}
     </div>

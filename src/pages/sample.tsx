@@ -30,7 +30,7 @@ const Sample: NextPage = () => {
       <form onSubmit={handleSubmit(onSumit)}>
         <div style={{ width: '350px' }}>
           <RoundedInput
-            maultiLine={false}
+            multiLine={false}
             iconIncluded={true}
             type={'text'}
             placeholder={'姓'}
@@ -40,7 +40,7 @@ const Sample: NextPage = () => {
           />
           <div style={{ margin: '30px' }} />
           <RoundedInput
-            maultiLine={false}
+            multiLine={false}
             placeholder={'名'}
             type={'text'}
             name={'last_name'}
@@ -48,7 +48,7 @@ const Sample: NextPage = () => {
             errorMessage={errors.last_name && errors.last_name.message}
           />
           <div style={{ margin: '30px' }} />
-          <RoundedInput maultiLine={true} rows={5} placeholder={'趣味'} name="hobby" control={control} />
+          <RoundedInput multiLine={true} rows={5} placeholder={'趣味'} name="hobby" control={control} />
           <button type="submit">送信</button>
         </div>
       </form>
