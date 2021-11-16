@@ -37,10 +37,11 @@ const RoundedInput: VFC<Props> = (props) => {
       {label && <label htmlFor={name}>{label}</label>}
       <div className={styles.input}>
         {multiLine ? (
-          <textarea placeholder={placeholder} rows={rows} {...field} />
+          <textarea id={name} placeholder={placeholder} rows={rows} {...field} />
         ) : (
           <>
             <input
+              id={name}
               className={!iconIncluded ? styles.input__icon_none : ''}
               type={type}
               placeholder={placeholder}

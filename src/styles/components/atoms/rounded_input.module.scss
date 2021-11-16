@@ -4,26 +4,26 @@
   position: relative;
   width: 100%;
   height: 100%;
-  :focus {
-    border: 2px solid $secondary;
-  }
-  ::placeholder {
-    color: #cecece;
-  }
-  :-webkit-autofill {
-    box-shadow: 0 0 0px 1000px #ffffff inset;
+  input, textarea {
+    &:focus {
+      border: 2px solid $secondary;
+    }
+    &::placeholder {
+      color: #cecece;
+    }
+    &:-webkit-autofill {
+      box-shadow: 0 0 0px 1000px #ffffff inset;
+    }
   }
   input {
+    transition: all 0.3s ease-in-out;
     outline: none;
     width: 100%;
     height: 50px;
     border-radius: 30px;
     border: 2px solid $main;
     color: $text-main;
-    padding-left: 36px;
-  }
-  &__icon_none {
-    padding-left: 18px !important;
+    text-indent: 36px;
   }
   &__icon,
   &__icon_error {
@@ -35,8 +35,12 @@
     &_error {
       right: 8px;
     }
+    &_none {
+      text-indent: 18px !important;
+    }
   }
   textarea {
+    transition: all 0.3s ease-in-out;
     outline: none;
     width: 100%;
     resize: none;
