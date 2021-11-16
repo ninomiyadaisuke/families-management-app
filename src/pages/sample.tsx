@@ -30,6 +30,7 @@ const Sample: NextPage = () => {
       <form onSubmit={handleSubmit(onSumit)}>
         <div style={{ width: '350px' }}>
           <RoundedInput
+            label={'test'}
             multiLine={false}
             iconIncluded={true}
             type={'text'}
@@ -48,7 +49,7 @@ const Sample: NextPage = () => {
             errorMessage={errors.last_name && errors.last_name.message}
           />
           <div style={{ margin: '30px' }} />
-          <RoundedInput multiLine={true} rows={5} placeholder={'趣味'} name="hobby" control={control} />
+          <RoundedInput multiLine={true} rows={5} placeholder={'趣味'} name="hobby" control={control} label={'趣味'} />
           <button type="submit">送信</button>
         </div>
       </form>
