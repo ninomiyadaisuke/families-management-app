@@ -52,13 +52,13 @@
     color: $error-primary;
   }
   &__container {
-    display: flex;
+    display: block;
     label{
       font-size: 16px;
       padding-left: 10px;
     }
     @include mq('md') {
-      display: block;
+      display: flex;
       label{
         font-size: 20px;
         width: 260px;
