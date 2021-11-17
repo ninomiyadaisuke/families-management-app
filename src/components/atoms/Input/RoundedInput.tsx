@@ -33,9 +33,9 @@ const RoundedInput: VFC<Props> = (props) => {
   const { field } = useController({ name, control });
 
   return (
-    <div className={styles.input__container}>
+    <div className={styles.input}>
       {label && <label htmlFor={name}>{label}</label>}
-      <div className={styles.input}>
+      <div className={styles.input__container}>
         {multiLine ? (
           <textarea id={name} placeholder={placeholder} rows={rows} {...field} />
         ) : (
