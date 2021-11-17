@@ -1,61 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NextPage } from 'next';
-import { useForm } from 'react-hook-form';
 import { Layout } from 'components/layout';
-import { yupResolver } from '@hookform/resolvers/yup/dist/yup.umd';
-import { RoundedInput } from 'components/atoms/Input';
-import { testSchema } from 'lib/validationSchema';
-
-const defaultValues = {
-  first_name: '',
-  last_name: '',
-  hobby: '',
-};
 
 const Sample: NextPage = () => {
-  const [formData, setFormData] = useState('');
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm({
-    defaultValues: defaultValues,
-    resolver: yupResolver(testSchema),
-  });
-  const onSumit = (data: any) => {
-    setFormData(JSON.stringify(data));
-  };
-  return (
-    <Layout pageTitle={'サンプル'}>
-      <form onSubmit={handleSubmit(onSumit)}>
-        <div style={{ width: '350px' }}>
-          <RoundedInput
-            label={'test'}
-            multiLine={false}
-            iconIncluded={true}
-            type={'text'}
-            placeholder={'姓'}
-            name={'first_name'}
-            control={control}
-            errorMessage={errors.first_name && errors.first_name.message}
-          />
-          <div style={{ margin: '30px' }} />
-          <RoundedInput
-            multiLine={false}
-            placeholder={'名'}
-            type={'text'}
-            name={'last_name'}
-            control={control}
-            errorMessage={errors.last_name && errors.last_name.message}
-          />
-          <div style={{ margin: '30px' }} />
-          <RoundedInput multiLine={true} rows={5} placeholder={'趣味'} name="hobby" control={control} label={'趣味'} />
-          <button type="submit">送信</button>
-        </div>
-      </form>
-      <p>{formData}</p>
-    </Layout>
-  );
+  return <Layout pageTitle={'サンプル'}></Layout>;
 };
 
 export default Sample;
