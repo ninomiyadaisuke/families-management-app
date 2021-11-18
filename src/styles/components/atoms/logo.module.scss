@@ -1,0 +1,16 @@
+@import '../../variables.scss';
+
+.logo {
+  &__base {
+    width: auto;
+    height: auto;
+  }
+  &__footer {
+    width: 78px;
+    height: 78px;
+  }
+  @include mq('md') {
+    width: 90px;
+    height: 90px;
+  }
+}
