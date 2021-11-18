@@ -7,7 +7,7 @@ type Props = {
   path: string;
   logoType?: string;
   height: number;
-  width?: number;
+  width: number;
 };
 
 const LogoArea: VFC<Props> = memo((props) => {
