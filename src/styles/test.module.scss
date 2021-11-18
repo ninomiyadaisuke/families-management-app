@@ -8,15 +8,12 @@
       width: auto;
       height: auto;      
     }
-    &_auth {
+    &_sp {
       width: auto;
       height: auto;
       @include mq('md') {
         display: none;
       }
-    }
-    &_not_auth {
-      @extend .test__header_auth;
     }
   }
   &__other {

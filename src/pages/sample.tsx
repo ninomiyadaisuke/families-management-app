@@ -17,30 +17,26 @@ const Sample: NextPage = () => {
       <div className={styles.test__header}>
         <LogoArea path={'/main_logo_pc.png'} height={55} width={266} />
       </div>
-      {beforeLogin ? (
-        <div className={styles.test__header_not_auth}>
+      <div className={styles.test__header_sp}>
+        {beforeLogin ? (
           <LogoArea path={'/f_logo.png'} height={48} width={48} />
-        </div>
-      ) : (
-        <div className={styles.test__header_auth}>
+        ) : (
           <LogoArea path={'/main_logo_sp.png'} height={55} width={145} />
-        </div>
-      )}
+        )}
+      </div>
       <Spacer size={'lg'} />
       <p>ヘッダーlogin後</p>
       <Spacer size={'xs'} />
       <div className={styles.test__header}>
         <LogoArea path={'/main_logo_pc.png'} height={55} width={266} />
       </div>
-      {afterLogin ? (
-        <div className={styles.test__header_not_auth}>
+      <div className={styles.test__header_sp}>
+        {afterLogin ? (
           <LogoArea path={'/f_logo.png'} height={48} width={48} />
-        </div>
-      ) : (
-        <div className={styles.test__header_auth}>
+        ) : (
           <LogoArea path={'/main_logo_sp.png'} height={55} width={145} />
-        </div>
-      )}
+        )}
+      </div>
       <Spacer size={'lg'} />
       <p>footer</p>
       <Spacer size={'xs'} />
