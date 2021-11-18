@@ -1,0 +1,39 @@
+@import '../../variables.scss';
+
+.button {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: none;
+  color: #fffffe;
+  &__navy {
+    @extend .button;
+    background: $main;
+    &:hover {
+      background: $button-hover;
+    }
+  }
+  &__wine_red {
+    @extend .button;
+    background: $button-primary;
+    &:hover {
+      background: $button-primary-hover;
+    }
+  }
+  &__light_blue {
+    @extend .button;
+    background: $button-secondary;
+    &:hover {
+      background: $button-secondary-hover;
+    }
+  }
+  &__outline {
+    @extend .button;
+    color: $main;
+    border: 3px solid $main;
+    background: #fffffe;
+    &:hover {
+      box-shadow: 5px 5px 8px #cecece;
+    }
+  }
+}
