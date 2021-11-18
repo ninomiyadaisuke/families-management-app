@@ -10,21 +10,21 @@
     @extend .button;
     background: $main;
     &:hover {
-      background: #366a8e;
+      background: $button-hover;
     }
   }
   &__wine_red {
     @extend .button;
     background: $button-primary;
     &:hover {
-      background: #de3d5c;
+      background: $button-primary-hover;
     }
   }
   &__light_blue {
     @extend .button;
-    background: #3da9fc;
+    background: $button-secondary;
     &:hover {
-      background: #5ba7e2;
+      background: $button-secondary-hover;
     }
   }
   &__outline {
@@ -33,7 +33,7 @@
     border: 3px solid $main;
     background: #fffffe;
     &:hover {
-      box-shadow: 0px 3px 5px 2px inset #cecece;
+      box-shadow: 5px 5px 8px #cecece;
     }
   }
 }

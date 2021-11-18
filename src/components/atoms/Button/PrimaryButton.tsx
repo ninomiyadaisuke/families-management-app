@@ -4,12 +4,12 @@ import styles from 'styles/components/atoms/primary_button.module.scss';
 
 type Props = {
   onClick: () => void;
-  lable: string;
+  label: string;
   type: 'navy' | 'wine_red' | 'light_blue' | 'outline';
 };
 
 const PrimaryButton: VFC<Props> = (props) => {
-  const { onClick, lable = '', type = '' } = props;
+  const { onClick, label = '', type = '' } = props;
   const className = (() => {
     switch (type) {
       case 'navy':
@@ -24,7 +24,7 @@ const PrimaryButton: VFC<Props> = (props) => {
   })();
   return (
     <button className={className} onClick={onClick}>
-      {lable}
+      {label}
     </button>
   );
 };
