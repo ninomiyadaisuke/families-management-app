@@ -9,7 +9,7 @@ const Sample: NextPage = () => {
   const test = () => {};
   return (
     <Layout pageTitle={'サンプル'}>
-      <div style={{ width: '162px', height: '65px', fontSize: '20px' }}>
+      <div style={{ width: '164px', height: '65px', fontSize: '20px' }}>
         <PrimaryButton lable={'送信'} type={'navy'} onClick={test} />
       </div>
       <Spacer size={'md'} />
