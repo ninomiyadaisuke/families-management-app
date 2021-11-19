@@ -2,57 +2,83 @@
 
 .button {
   position: relative;
-  button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-  p {
-    height: 50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  &::before {
     position: absolute;
-    font-size: 60px;
-    cursor: pointer;
-    top: -29px;
-    left: 8px;
+    width: 4px;
+    height: 30px;
+    content: '';
+    background: #ffffff;
+    transform: rotate(90deg);
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    transform: rotate(90deg);
+    width: 30px;
+    height: 4px;
   }
   &__normal {
     @extend .button;
-    button {
-      border: none;
-      background: $button-secondary;
+    background: $button-secondary;
+    &::before {
+      top: 10px;
+      left: 23px;
+      background: #ffffff;
     }
-    p {
-      color: #ffffff;
+    &::after {
+      top: 23px;
+      left: 10px;
+      background: #ffffff;
+    }
+    &:hover {
+      background: $button-secondary-hover;
     }
   }
   &__outline {
     @extend .button;
-    button {
-      background: $bg-white;
-      border: 1px solid $button-border;
+    border: 1px solid $button-border;
+    &::before {
+      top: 10px;
+      left: 22px;
+      background: $main;
+    }
+    &::after {
+      top: 23px;
+      left: 9px;
+      background-color: $main;
+    }
+    &:hover {
+      box-shadow: 5px 5px 8px $light-grey;
     }
   }
   @include mq('md') {
     &__normal {
       @extend .button;
-      button {
-        width: 80px;
-        height: 50px;
-        border-radius: 54px;
+      width: 80px;
+      height: 50px;
+      border-radius: 54px;
+      &::before {
+        left: 38px;
       }
-      p{
-        left: 23px;
+      &::after {
+        left: 25px;
       }
     }
     &__outline {
       @extend .button;
-      button {
-        width: 73px;
-        height: 73px;
+      width: 73px;
+      height: 73px;
+      &::before {
+        top: 21px;
+        left: 33px;
       }
-      p {
-        top: -18px;
-        left: 19px;
+      &::after {
+        top: 35px;
+        left: 20px;
       }
     }
   }

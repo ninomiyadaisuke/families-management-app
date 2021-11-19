@@ -18,12 +18,7 @@ const AddButton: VFC<Props> = memo((props) => {
         return `${styles.button__outline}`;
     }
   })();
-  return (
-    <div className={className}>
-      <p>+</p>
-      <button onClick={onClick} />
-    </div>
-  );
+  return <div className={className} onClick={onClick} />;
 });
 
 export default AddButton;
