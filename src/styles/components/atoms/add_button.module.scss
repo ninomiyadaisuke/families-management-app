@@ -7,18 +7,18 @@
   border-radius: 50%;
   cursor: pointer;
   border: none;
-  &::before {
-    position: absolute;
-    width: 4px;
-    height: 30px;
-    content: '';
-    background: #ffffff;
-    transform: rotate(90deg);
-  }
+  &::before,
   &::after {
     position: absolute;
     content: '';
     transform: rotate(90deg);
+  }
+  &::before {
+    width: 4px;
+    height: 30px;
+    background: #ffffff;
+  }
+  &::after {
     width: 30px;
     height: 4px;
   }
