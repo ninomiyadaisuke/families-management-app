@@ -1,0 +1,86 @@
+@import '../../variables.scss';
+
+.button {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    transform: rotate(90deg);
+  }
+  &::before {
+    width: 4px;
+    height: 30px;
+    background: #ffffff;
+  }
+  &::after {
+    width: 30px;
+    height: 4px;
+  }
+  &__normal {
+    @extend .button;
+    background: $button-secondary;
+    &::before {
+      top: 10px;
+      left: 23px;
+      background: #ffffff;
+    }
+    &::after {
+      top: 23px;
+      left: 10px;
+      background: #ffffff;
+    }
+    &:hover {
+      background: $button-secondary-hover;
+    }
+  }
+  &__outline {
+    @extend .button;
+    background: $bg-white;
+    border: 1px solid $button-border;
+    &::before {
+      top: 10px;
+      left: 22px;
+      background: $main;
+    }
+    &::after {
+      top: 23px;
+      left: 9px;
+      background-color: $main;
+    }
+    &:hover {
+      box-shadow: 5px 5px 8px $light-grey;
+    }
+  }
+  @include mq('md') {
+    &__normal {
+      @extend .button;
+      width: 80px;
+      height: 50px;
+      border-radius: 54px;
+      &::before {
+        left: 38px;
+      }
+      &::after {
+        left: 25px;
+      }
+    }
+    &__outline {
+      @extend .button;
+      width: 73px;
+      height: 73px;
+      &::before {
+        top: 21px;
+        left: 33px;
+      }
+      &::after {
+        top: 35px;
+        left: 20px;
+      }
+    }
+  }
+}
