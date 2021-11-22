@@ -1,6 +1,45 @@
 @import '../../variables.scss';
 
 .button {
-  width: 122px;
-  height: 28px;
+  position: relative;
+  label,
+  &__icon {
+    cursor: pointer;
+  }
+  label {
+    display: block;
+    width: 122px;
+    height: 28px;
+    font-size: 12px;
+    border-radius: 20px;
+    line-height: 28px;
+  }
+  &__selected {
+    @extend .button;
+    label {
+      outline: 2px dashed $main;
+      text-indent: 28px;
+      background: $bg-white;
+      color: $main;
+      &:hover {
+        box-shadow: 5px 5px 8px $light-grey;
+      }
+    }
+  }
+  &__upload {
+    @extend .button;
+    label {
+      text-indent: 35px;
+      background: $button-secondary;
+      color: #ffffff;
+      &:hover {
+        background: $button-secondary-hover;
+      }
+    }
+  }
+  &__icon {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+  }
 }

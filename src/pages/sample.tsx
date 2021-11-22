@@ -7,10 +7,10 @@ const Sample: NextPage = () => {
   const test = () => {};
   return (
     <Layout pageTitle={'サンプル'}>
-      <UploadButton type={'file'} buttonType={'upload'} label={'アップロード'} onClick={test} />
+      <UploadButton type={'file'} id={'selectedId'} buttonType={'selected'} label={'ファイルを選択'} onClick={test} />
 
       <div style={{ margin: '100px' }} />
-      <UploadButton type={'button'} buttonType={'upload'} label={'アップロード'} onClick={test} />
+      <UploadButton type={'button'} id={'uploadId'} buttonType={'upload'} label={'アップロード'} onClick={test} />
     </Layout>
   );
 };
