@@ -7,6 +7,7 @@
   &__label {
     position: relative;
     cursor: pointer;
+    font-size: 16px;
     padding-left: 40px;
     &::before,
     &::after {
@@ -14,8 +15,8 @@
       display: block;
       border-radius: 50%;
       position: absolute;
-      // transform: translateY(-50%);
-      // top: 50%;
+      transform: translateY(-50%);
+      top: 50%;
     }
     &::before {
       background: $bg-white;
@@ -32,7 +33,6 @@
       width: 16px;
       height: 16px;
       left: 7px;
-      top: 2px;
     }
     &_disabled {
       @extend .input__label;
@@ -45,5 +45,10 @@
   }
   input:checked + label::after {
     opacity: 1;
+  }
+  @include mq('md') {
+    &__label{
+      font-size: 20px;
+    }
   }
 }
