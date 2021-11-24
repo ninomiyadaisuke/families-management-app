@@ -1,0 +1,52 @@
+@import '../../variables.scss';
+
+.input {
+  input {
+    display: none;
+  }
+  &__label {
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    padding-left: 40px;
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      border-radius: 50%;
+      position: absolute;
+      transform: translateY(-50%);
+      top: 50%;
+    }
+    &::before {
+      background: $bg-white;
+      border: 1px solid $main;
+      width: 20px;
+      height: 20px;
+      left: 5px;
+    }
+    &::after {
+      background: $main;
+      opacity: 0;
+      width: 16px;
+      height: 16px;
+      left: 7px;
+    }
+    &_disabled {
+      @extend .input__label;
+      color: $light-grey;
+      &::before,
+      &::after {
+        border: 1px solid $light-grey;
+      }
+    }
+  }
+  input:checked + label::after {
+    opacity: 1;
+  }
+  @include mq('md') {
+    &__label{
+      font-size: 20px;
+    }
+  }
+}
