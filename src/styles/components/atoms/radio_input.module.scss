@@ -1,0 +1,47 @@
+@import '../../variables.scss';
+
+.input {
+  position: relative;
+  display: flex;
+  input {
+    display: none;
+  }
+  &__icon {
+    position: absolute;
+    top: 10px;
+    left: 105px;
+  }
+  &__check::before,
+  &__disabled,
+  input:checked + &__check::after {
+    cursor: pointer;
+    content: '';
+    border-radius: 50%;
+    display: block;
+  }
+  &__check::before,
+  &__disabled {
+    background: $bg-white;
+    width: 22px;
+    height: 22px;
+    border: 1px solid;
+    border-radius: 50%;
+  }
+  input:checked + &__check::after {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 3px;
+    left: 3px;
+    background: $main;
+  }
+  &__disabled {
+    border: 1px solid $light-grey;
+  }
+  &__label , &_disabled {
+    cursor: pointer;
+    &_disabled {
+      color: $light-grey;
+    }
+  }
+}
