@@ -21,14 +21,12 @@
     &::before {
       background: $bg-white;
       border: 1px solid $main;
-      border-radius: 50%;
       width: 20px;
       height: 20px;
       left: 5px;
     }
     &::after {
       background: $main;
-      border-radius: 50%;
       opacity: 0;
       width: 16px;
       height: 16px;
