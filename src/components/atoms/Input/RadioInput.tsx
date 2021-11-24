@@ -1,8 +1,6 @@
 import { VFC } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 
-import { WidthSpacer } from 'components/atoms/Utilities';
-
 import styles from 'styles/components/atoms/radio_input.module.scss';
 
 type Props = {
@@ -20,8 +18,6 @@ const RadioInput: VFC<Props> = (props) => {
   return (
     <div className={styles.input}>
       <input type="radio" name={inputName} value={label} disabled={disabled} id={id} {...register(name)} />
-      <label className={disabled ? styles.input__disabled : styles.input__check} htmlFor={id} />
-      <WidthSpacer size={'md'} />
       <label className={disabled ? styles.input__label_disabled : styles.input__label} htmlFor={id}>
         {label}
       </label>

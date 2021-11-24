@@ -1,47 +1,47 @@
 @import '../../variables.scss';
 
 .input {
-  position: relative;
-  display: flex;
   input {
     display: none;
   }
-  &__icon {
-    position: absolute;
-    top: 10px;
-    left: 105px;
-  }
-  &__check::before,
-  &__disabled,
-  input:checked + &__check::after {
+  &__label {
+    position: relative;
     cursor: pointer;
-    content: '';
-    border-radius: 50%;
-    display: block;
-  }
-  &__check::before,
-  &__disabled {
-    background: $bg-white;
-    width: 22px;
-    height: 22px;
-    border: 1px solid;
-    border-radius: 50%;
-  }
-  input:checked + &__check::after {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 3px;
-    left: 3px;
-    background: $main;
-  }
-  &__disabled {
-    border: 1px solid $light-grey;
-  }
-  &__label , &_disabled {
-    cursor: pointer;
-    &_disabled {
-      color: $light-grey;
+    padding-left: 40px;
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      border-radius: 50%;
+      position: absolute;
     }
+    &::before {
+      background: $bg-white;
+      border: 1px solid $main;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      left: 5px;
+    }
+    &::after {
+      background: $main;
+      border-radius: 50%;
+      opacity: 0;
+      width: 16px;
+      height: 16px;
+      left: 7px;
+      top: 2px;
+    }
+    &_disabled {
+      @extend .input__label;
+      color: $light-grey;
+      &::before,
+      &::after {
+        border: 1px solid $light-grey;
+      }
+    }
+  }
+  input:checked + label::after {
+    opacity: 1;
   }
 }
