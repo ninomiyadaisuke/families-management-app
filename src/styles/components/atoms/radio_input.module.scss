@@ -14,6 +14,8 @@
       display: block;
       border-radius: 50%;
       position: absolute;
+      transform: translateY(-50%);
+      top: 50%;
     }
     &::before {
       background: $bg-white;
@@ -30,7 +32,6 @@
       width: 16px;
       height: 16px;
       left: 7px;
-      top: 2px;
     }
     &_disabled {
       @extend .input__label;
