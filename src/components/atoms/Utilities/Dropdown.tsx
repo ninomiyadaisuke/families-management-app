@@ -7,7 +7,7 @@ import styles from 'styles/components/atoms/dropdown.module.scss';
 
 type Props = {
   options: { label: string; path: string }[];
-  type: '記録一覧' | 'icon';
+  type: 'text' | 'icon';
 };
 
 const Dropdown: VFC<Props> = (props) => {
@@ -15,9 +15,10 @@ const Dropdown: VFC<Props> = (props) => {
   const [spSize, setSpSize] = useState(false);
   const [isChange, setIsChange] = useState(false);
 
+  //liタグを管理する
   const showListItem = (() => {
     switch (type) {
-      case '記録一覧':
+      case 'text':
         return true;
       case 'icon':
         if (!spSize || (spSize && isChange)) return true;
@@ -25,7 +26,7 @@ const Dropdown: VFC<Props> = (props) => {
         if (!isChange) return false;
     }
   })();
-
+  //widthをチェック
   useEffect(() => {
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) {
@@ -39,14 +40,14 @@ const Dropdown: VFC<Props> = (props) => {
 
   return (
     <div className={styles.dropdown}>
-      {type === '記録一覧' ? (
-        <p className={styles.dropdown__title}>{type}</p>
+      {type === 'text' ? (
+        <p className={styles.dropdown__title}>記事一覧</p>
       ) : (
         <>
           {!isChange && (spSize || !spSize) && (
             <div
               onClick={spSize ? () => setIsChange(true) : () => setIsChange(false)}
-              className={styles.dropdown__icon}
+              className={spSize ? styles.dropdown__icon_sp : styles.dropdown__icon}
             >
               <IconArea path={'/profile_user_icon.png'} height={58} width={52} />
             </div>
@@ -54,7 +55,7 @@ const Dropdown: VFC<Props> = (props) => {
           {isChange && spSize && <span onClick={() => setIsChange(false)} className={styles.dropdown__batsu} />}
         </>
       )}
-      <ul className={type === '記録一覧' ? styles.dropdown__cormorant : styles.dropdown__profile}>
+      <ul className={type === 'text' ? styles.dropdown__cormorant : styles.dropdown__profile}>
         {options.map((option) => (
           <Link key={option.label} href={option.path}>
             <a>{showListItem && <li>{option.label}</li>}</a>
