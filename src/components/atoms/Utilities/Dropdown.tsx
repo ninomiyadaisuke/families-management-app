@@ -28,6 +28,12 @@ const Dropdown: VFC<Props> = (props) => {
   })();
   //widthをチェック
   useEffect(() => {
+    if (window.innerWidth >= 768) {
+      setSpSize(false);
+      setIsChange(false);
+    } else {
+      setSpSize(true);
+    }
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) {
         setSpSize(false);

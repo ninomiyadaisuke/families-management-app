@@ -19,6 +19,7 @@ const Sample: NextPage = () => {
     <Layout pageTitle={'サンプル'}>
       <div style={{ height: '82px', borderBottom: '1px solid', borderTop: '1px solid' }}>
         <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', height: '100%' }}>
+          <Dropdown options={presentOptions} type={'text'} />
           <Dropdown options={profileOptions} type={'icon'} />
         </div>
       </div>
