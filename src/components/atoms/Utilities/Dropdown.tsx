@@ -22,25 +22,22 @@ const Dropdown: VFC<Props> = (props) => {
         return true;
       case 'icon':
         if (!spSize || (spSize && isChange)) return true;
-      case 'icon':
-        if (!isChange) return false;
     }
   })();
-  //widthをチェック
-  useEffect(() => {
-    if (window.innerWidth >= 768) {
+
+  const widthCheck = (check: boolean) => {
+    if (check) {
       setSpSize(false);
       setIsChange(false);
     } else {
       setSpSize(true);
     }
+  };
+  //widthをチェック
+  useEffect(() => {
+    widthCheck(window.innerWidth >= 768);
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) {
-        setSpSize(false);
-        setIsChange(false);
-      } else {
-        setSpSize(true);
-      }
+      widthCheck(window.innerWidth >= 768);
     });
   });
 
