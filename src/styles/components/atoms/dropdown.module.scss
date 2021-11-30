@@ -1,0 +1,84 @@
+@import '../../variables.scss';
+
+.dropdown {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__icon,
+  &__title,&__batsu {
+    cursor: pointer;
+    &_sp {
+      @extend .dropdown__icon;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 16px;
+    }
+  }
+  &__title {
+    color: $main;
+    font-size: 24px;
+    font-weight: 300;
+  }
+  &__cormorant,
+  &__profile {
+    position: absolute;
+    width: 170px;
+    top: 80px;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+  &__profile {
+    top: 78px;
+  }
+  a {
+    text-decoration: none;
+  }
+  li {
+    text-align: center;
+    font-size: 20px;
+    color: $main;
+    font-weight: 300;
+    height: 50px;
+    padding: 10px 0;
+  }
+  &__batsu {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      width: 2px;
+      height: 15px;
+      background: $main;
+    }
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+  @include mq('md') {
+    &__icon {
+      display: block;
+    }
+    li {
+      display: none;
+      box-shadow: -5px 5px 8px $light-grey;
+      background: $bg-white;
+      &:hover {
+        background: $dropdown-primary;
+      }
+    }
+    &:hover {
+      li {
+        display: block;
+      }
+    }
+  }
+}
