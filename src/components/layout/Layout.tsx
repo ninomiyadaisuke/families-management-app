@@ -3,7 +3,7 @@ import Head from 'next/head';
 import styles from 'styles/layout/layout.module.scss';
 
 type Props = {
-  pageTitle: string
+  pageTitle: string;
 };
 
 const Layout: FC<Props> = (props) => {
@@ -12,6 +12,10 @@ const Layout: FC<Props> = (props) => {
     <div className={styles.container}>
       <Head>
         <title>{pageTitle}</title>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+        />
       </Head>
       <main className={styles.main}>{children}</main>
     </div>
