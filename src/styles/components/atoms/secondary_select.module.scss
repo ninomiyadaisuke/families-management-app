@@ -11,7 +11,7 @@
     position: absolute;
     right: 16px;
     top: 35px;
-    z-index: 2;
+    z-index: 1;
     transform: rotate(0deg);
     transition: 0.3s;
     &_up {
@@ -23,7 +23,6 @@
   &__label,
   &__title {
     @extend .select;
-    z-index: 1;
     display: block;
     text-align: center;
     width: 100%;
