@@ -30,6 +30,7 @@
     border: 1px solid $border-secondary;
     color: $main;
     z-index: 1;
+    font-weight: 300;
   }
   &__title {
     height: 50px;
@@ -48,8 +49,5 @@
     top: 95%;
     color: $error-primary;
     font-size: 12px;
-  }
-  span {
-    font-weight: 300;
   }
 }

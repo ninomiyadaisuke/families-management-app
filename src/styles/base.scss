@@ -5,6 +5,11 @@ html {
   font-size: 16px;
 }
 
+@font-face {
+  font-family: "Noto Sans JP";
+  src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+}
+
 body {
   color: $main;
   font-family: 'Noto Sans JP', sans-serif;
@@ -60,15 +65,15 @@ samp {
   font-size: 1em;
 }
 
-// button,
-// input,
-// optgroup,
-// select,
-// textarea {
-//   color: inherit;
-//   font: inherit;
-//   margin: 0;
-// }
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
 
 button {
   overflow: visible;
