@@ -22,6 +22,7 @@
     "algoliasearch": "^4.11.0",
     "eslint-config-airbnb-typescript": "^14.0.1",
     "firebase": "^9.2.0",
+    "html-react-parser": "^1.4.1",
     "instantsearch.css": "^7.4.5",
     "next": "12.0.2",
     "react": "17.0.2",
