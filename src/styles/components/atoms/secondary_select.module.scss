@@ -7,7 +7,6 @@
   font-size: 20px;
   cursor: pointer;
   background: $bg-white;
-  font-weight: 300 !important;
   &__triangle {
     position: absolute;
     right: 16px;
@@ -49,5 +48,8 @@
     top: 95%;
     color: $error-primary;
     font-size: 12px;
+  }
+  span {
+    font-weight: 300;
   }
 }
