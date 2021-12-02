@@ -23,6 +23,13 @@
       box-shadow: 0 0 0px 1000px $bg-white inset;
     }
   }
+  p {
+    position: absolute;
+    top: 42px;
+    right: 10px;
+    font-size: 12px;
+    color: $error-primary;
+  }
   &__icon {
     position: absolute;
     height: 30px;
@@ -45,6 +52,11 @@
         color: $light-grey;
         font-size: 18px;
       }
+    }
+    p {
+      top: 65px;
+      right: 20px;
+      font-size: 16px;
     }
     &__icon {
       right: 20px;

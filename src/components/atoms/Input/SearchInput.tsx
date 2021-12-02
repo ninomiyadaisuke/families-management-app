@@ -10,11 +10,12 @@ type Props = {
   placeholder: string;
   name: string;
   control: Control<any, object>;
+  errorMessage?: string;
   onClick: (e?: React.BaseSyntheticEvent<object, any, any>) => Promise<void>;
 };
 
 const SearchInput: VFC<Props> = (props) => {
-  const { placeholder = '', name = '', control, onClick } = props;
+  const { placeholder = '', name = '', errorMessage = '', control, onClick } = props;
   const { field } = useController({ name, control });
 
   return (
@@ -23,6 +24,7 @@ const SearchInput: VFC<Props> = (props) => {
       <div className={styles.search__icon} onClick={onClick}>
         <IconArea path={'/search_icon.png'} height={48} width={48} />
       </div>
+      {errorMessage && <p>{errorMessage}</p>}
     </div>
   );
 };
