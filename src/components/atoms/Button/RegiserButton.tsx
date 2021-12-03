@@ -10,12 +10,10 @@ const RegiserButton: VFC<Props> = memo((props) => {
   const { onClick } = props;
 
   return (
-    <>
-      <a onClick={onClick} className={styles.button}>
-        <span>Regiser now</span>
-        <span>登録</span>
-      </a>
-    </>
+    <a onClick={onClick} className={styles.button}>
+      <span>Regiser now</span>
+      <span>登録</span>
+    </a>
   );
 });
 
