@@ -12,6 +12,7 @@
   display: inline-block;
   text-decoration: none;
   background: $main;
+  z-index: 1;
   span {
     position: absolute;
     left: 50%;
