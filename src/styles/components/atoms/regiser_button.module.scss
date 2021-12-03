@@ -1,0 +1,77 @@
+@import '../../variables.scss';
+
+.button {
+  cursor: pointer;
+  position: relative;
+  border-radius: 20px;
+  outline: solid 2px #ffffff;
+  outline-offset: -5px;
+  width: 170px;
+  height: 45px;
+  padding: 20px;
+  display: inline-block;
+  text-decoration: none;
+  background: $main;
+  span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: #ffffff;
+    font-size: 16px;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+    display: block;
+    white-space: nowrap;
+    &:nth-child(2) {
+      opacity: 0;
+    }
+  }
+  &::after,&::before {
+    z-index: 1;
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: $main;
+    position: absolute;
+    transition: 0.3s;
+    top: 3px;
+    right: 30px;
+  }
+  &::after {
+    top: 38px;
+    left: 30px;
+  }
+  @include mq('md') {
+    width: 246px;
+    height: 58px;
+    outline-offset: -8px;
+    span {
+      font-size: 20px;
+    }
+    &:hover span {
+      &:nth-child(1) {
+        opacity: 0;
+      }
+      &:nth-child(2) {
+        opacity: 1;
+      }
+    }
+    &::after,&::before {
+      width: 160px;
+      height: 10px;
+      position: absolute;
+      border-radius: 20px;
+      top: 4px;
+      right: 6px;
+    }
+    &::after {
+      top: 43px;
+      left: 7px;
+    }
+    &:hover::before,&:hover::after {
+      width: 0%;
+    }
+  }
+}
+
