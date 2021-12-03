@@ -4,9 +4,10 @@ import { Layout } from 'components/layout';
 import { RegiserButton } from 'components/atoms/Button';
 
 const Sample: NextPage = () => {
+  const test = () => {};
   return (
     <Layout pageTitle={'サンプル'}>
-      <RegiserButton />
+      <RegiserButton onClick={test} />
     </Layout>
   );
 };
