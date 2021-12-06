@@ -1,0 +1,85 @@
+@import '../../variables.scss';
+
+.event {
+  position: relative;
+  width: 350px;
+  height: 150px;
+  border: 3px solid $main;
+  border-radius: 40px;
+  background: $bg-white;
+  p {
+    position: absolute;
+    top: -50px;
+    right: 25px;
+    letter-spacing: 0.2em;
+    font-size: 24px;
+    z-index: 1;
+  }
+  ul {
+    position: absolute;
+    left: 15%;
+    top: 20%;
+    font-size: 16px;
+  }
+  //listの点
+  li::before {
+    position: relative;
+    top: 15px;
+    left: -15px;
+    display: block;
+    content: '';
+    width: 3px;
+    height: 3px;
+    background: $main;
+    border-radius: 50%;
+  }
+  //一部borderを消している
+  &::before,
+  &::after {
+    content: '';
+    background-color: #ffffff;
+    border-top-right-radius: 40px;
+    width: 200px;
+    height: 40px;
+    position: absolute;
+    top: -3px;
+    right: -4px;
+  }
+  &::after {
+    top: 107px;
+    left: -4px;
+    border-bottom-left-radius: 40px;
+  }
+  @include mq('md') {
+    width: 75vw;
+    height: 206px;
+    p {
+      font-size: 40px;
+      letter-spacing: 0.3em;
+      top: -40px;
+      right: 20px;
+    }
+    ul {
+      left: 20%;
+      font-size: 24px;
+    }
+    &::before,
+    &::after {
+      width: 530px;
+      top: -3px;
+      right: 30px;
+      border-top-right-radius: 0px;
+    }
+    &::after {
+      top: 163px;
+      left: 30px;
+      border-bottom-left-radius: 0px;
+    }
+    li::before {
+      top: 22px;
+      left: -20px;
+      width: 6px;
+      height: 6px;
+    }
+  }
+}
