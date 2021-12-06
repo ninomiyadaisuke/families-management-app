@@ -37,16 +37,16 @@
   &::before,
   &::after {
     content: '';
-    background-color: #ffffff;
+    background-color:$main;
     border-top-right-radius: 40px;
     width: 200px;
     height: 40px;
     position: absolute;
-    top: -3px;
+    top: -4px;
     right: -4px;
   }
   &::after {
-    top: 107px;
+    top: 108px;
     left: -4px;
     border-bottom-left-radius: 40px;
   }

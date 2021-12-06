@@ -10,7 +10,7 @@ const Sample: NextPage = () => {
   return (
     <Layout pageTitle={'サンプル'}>
       <div style={{ margin: '30px' }}></div>
-      <div style={{ marginLeft: '20px' }}>
+      <div style={{ marginLeft: '10px' }}>
         <UpcommingEvents events={eventArray} />
         <div style={{ margin: '40px' }}></div>
         <UpcommingEvents events={eventArray0} />
