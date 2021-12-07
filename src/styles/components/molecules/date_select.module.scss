@@ -1,0 +1,58 @@
+@import '../../variables.scss';
+
+.select {
+  display: flex;
+  position: relative;
+  label {
+    display: flex;
+    font-size: 20px;
+    width: 260px;
+    height: 50px;
+    align-items: center;
+  }
+  &__rounded,
+  &__line {
+    @extend .select;
+    &_year,
+    &_month,
+    &_day {
+      position: absolute;
+      top: 10px;
+    }
+    &_md {
+      width: 100px;
+    }
+    &_xs {
+      width: 68px;
+    }
+    &_year {
+      left: 112px;
+    }
+    &_month {
+      right: 75px;
+    }
+    &_day {
+      right: -24px;
+    }
+  }
+  &__line {
+    &_md {
+      width: 66px;
+    }
+    &_xs {
+      width: 40px;
+    }
+    &_year {
+      left: 95px;
+      top: 13px;
+    }
+    &_month {
+      top: 13px;
+      right: 70px;
+    }
+    &_day {
+      top: 13px;
+      right: -35px;
+    }
+  }
+}
