@@ -8,6 +8,13 @@
     width: 260px;
     align-items: center;
   }
+  &__error {
+    position: absolute;
+    top: 75px;
+    left: 240px;
+    font-size: 12px;
+    color: $error-primary;
+  }
   &__rounded,
   &__line {
     display: flex;
@@ -58,6 +65,10 @@
     &__rounded_icon {
       top: 18px;
       left: 50px;
+    }
+    &__error {
+      top: 50px;
+      left: 500px;      
     }
     label {
       font-size: 20px;
