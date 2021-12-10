@@ -15,11 +15,3 @@ export const getSchema = (otosidama: boolean, label: string) => {
   });
   return dataSchema;
 };
-
-export const DateSchema = yup.object({
-  year: yup.string().required(''),
-  month: yup.string().required(''),
-  day: yup.string().required(''),
-});
-
-// react-hook-form trigger

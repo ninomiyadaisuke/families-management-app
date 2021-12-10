@@ -19,10 +19,11 @@ const Sample: NextPage = () => {
   const {
     handleSubmit,
     control,
+    getValues,
     formState: { errors },
   } = useForm({
     defaultValues: defaultValues,
-    resolver: yupResolver(getSchema(false, '生年月日')),
+    resolver: yupResolver(getSchema(false, '日付')),
   });
 
   const onSubmit = (data: any) => {

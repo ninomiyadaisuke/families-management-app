@@ -1,5 +1,5 @@
-import { VFC, useState, ChangeEvent } from 'react';
-import { Control, FieldError } from 'react-hook-form';
+import { VFC, useState, useEffect } from 'react';
+import { Control, FieldError, useWatch } from 'react-hook-form';
 
 import { RoundedSelect, UnderLineSelect } from 'components/atoms/Input';
 import { WidthSpacer } from 'components/atoms/Utilities';
@@ -21,7 +21,22 @@ type Props = {
 
 const DateSelect: VFC<Props> = (props) => {
   const { type = '', label = '', otosidama = false, control, errors } = props;
-  const [selectedDate, setSelectedDate] = useState({ day: '', month: '', year: '', otosidama: false });
+  const [maxDay, setMaxDay] = useState(31);
+
+  const selectedYear = useWatch({ control, name: 'year' });
+  const selectedMonth = useWatch({ control, name: 'month' });
+  const isLeapYear = new Date(`${selectedYear}/2/29`).getMonth() + 1 === 2;
+
+  useEffect(() => {
+    if (selectedMonth === '04' || selectedMonth === '06' || selectedMonth === '09' || selectedMonth === '11') {
+      setMaxDay(30);
+    } else {
+      setMaxDay(31);
+    }
+    if (isLeapYear && selectedMonth === '02') setMaxDay(29);
+    if (!isLeapYear && selectedMonth === '02') setMaxDay(28);
+  }, [selectedYear, selectedMonth]);
+
   const thisYear = new Date().getFullYear(); //今年
   const yearsData = []; // 年の配列
   const monthData = []; // 月の配列
@@ -29,16 +44,16 @@ const DateSelect: VFC<Props> = (props) => {
   for (let i = 0; i <= 100; i++) {
     const year = thisYear - i;
     const stringYear = String(year);
-    yearsData.push({ value: stringYear, label: stringYear });
+    yearsData.push({ value: stringYear });
   }
-  for (let i = 1; i <= 31; i++) {
+  for (let i = 1; i <= maxDay; i++) {
     const day = String(i);
     if (Number(day) < 10) {
       const modifiedDay = `0${day}`;
-      dayData.push({ value: modifiedDay, label: modifiedDay });
+      dayData.push({ value: modifiedDay });
     }
     if (Number(day) >= 10) {
-      dayData.push({ value: day, label: day });
+      dayData.push({ value: day });
     }
   }
   for (let i = 1; i <= 12; i++) {
@@ -51,9 +66,6 @@ const DateSelect: VFC<Props> = (props) => {
       monthData.push({ value: month });
     }
   }
-  const changeItem = (e: ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-  };
 
   return (
     <div className={styles.select}>
@@ -63,58 +75,50 @@ const DateSelect: VFC<Props> = (props) => {
           <IconArea path={'/mandatory_icon.png'} width={16} height={12} />
         </div>
       )}
-      {errors.year && <p className={styles.select__error}>{errors.year.message}</p>}
-      {errors.month && <p className={styles.select__error}>{errors.month.message}</p>}
-      {errors.day && <p className={styles.select__error}>{errors.day.message}</p>}
+
       {type === 'rounded' ? (
-        <div className={styles.select__rounded}>
-          <div className={styles.select__rounded_md}>
-            <RoundedSelect options={yearsData} id={'id'} onChange={changeItem} control={control} name={'year'} />
+        <>
+          {errors.year && <p className={styles.select__error}>{errors.year.message}</p>}
+          {errors.month && <p className={styles.select__error}>{errors.month.message}</p>}
+          {errors.day && <p className={styles.select__error}>{errors.day.message}</p>}
+
+          <div className={styles.select__rounded}>
+            <div className={styles.select__rounded_md}>
+              <RoundedSelect options={yearsData} id={'id'} control={control} name={'year'} />
+            </div>
+            <p className={styles.select__rounded_year}>年</p>
+            <WidthSpacer size={'lg'} />
+            <WidthSpacer size={'xs'} />
+            <div className={styles.select__rounded_xs}>
+              <RoundedSelect options={monthData} control={control} name={'month'} disabled={otosidama} />
+            </div>
+            <WidthSpacer size={'lg'} />
+            <WidthSpacer size={'xs'} />
+            <p className={styles.select__rounded_month}>月</p>
+            <div className={styles.select__rounded_xs}>
+              <RoundedSelect options={dayData} control={control} name={'day'} disabled={otosidama} />
+            </div>
+            <p className={styles.select__rounded_day}>日</p>
           </div>
-          <p className={styles.select__rounded_year}>年</p>
-          <WidthSpacer size={'lg'} />
-          <WidthSpacer size={'xs'} />
-          <div className={styles.select__rounded_xs}>
-            <RoundedSelect
-              options={monthData}
-              onChange={changeItem}
-              control={control}
-              name={'month'}
-              disabled={otosidama}
-            />
-          </div>
-          <WidthSpacer size={'lg'} />
-          <WidthSpacer size={'xs'} />
-          <p className={styles.select__rounded_month}>月</p>
-          <div className={styles.select__rounded_xs}>
-            <RoundedSelect
-              options={dayData}
-              onChange={changeItem}
-              control={control}
-              name={'day'}
-              disabled={otosidama}
-            />
-          </div>
-          <p className={styles.select__rounded_day}>日</p>
-        </div>
+        </>
       ) : (
         <div className={styles.select__line}>
           <div className={styles.select__line_md}>
-            <UnderLineSelect options={yearsData} id={'id'} name={'year'} onChange={changeItem} />
+            <UnderLineSelect options={yearsData} id={'id'} name={'year'} control={control} />
           </div>
           <p className={styles.select__line_year}>年</p>
           <WidthSpacer size={'xl'} />
           <WidthSpacer size={'sm'} />
           <WidthSpacer size={'xs'} />
           <div className={styles.select__line_xs}>
-            <UnderLineSelect options={monthData} name={'month'} onChange={changeItem} />
+            <UnderLineSelect options={monthData} name={'month'} control={control} />
           </div>
           <p className={styles.select__line_month}>月</p>
           <WidthSpacer size={'xl'} />
           <WidthSpacer size={'sm'} />
           <WidthSpacer size={'xs'} />
           <div className={styles.select__line_xs}>
-            <UnderLineSelect options={dayData} name={'day'} onChange={changeItem} />
+            <UnderLineSelect options={dayData} name={'day'} control={control} />
           </div>
           <p className={styles.select__line_day}>日</p>
         </div>
@@ -124,24 +128,3 @@ const DateSelect: VFC<Props> = (props) => {
 };
 
 export default DateSelect;
-// const nowYear = String(new Date().getFullYear());
-// const nowMonth = String(new Date().getMonth() + 1);
-// const nowDay = String(new Date().getDay());
-// const [maxDay, setMaxDay] = useState(31);
-
-// const [selectedYear, setSelectedYear] = useState(String(nowYear));
-// const [selectedDay, setSelectedDay] = useState(String(nowDay));
-
-// const changeItem = (e: ChangeEvent<HTMLSelectElement>, date: string) => {
-//   const value = e.target.value;
-//   if (value.length === 4) {
-//     setSelectedYear(value);
-//   }
-//   const isLeapYear = new Date(`${selectedYear}/2/29`).getMonth() + 1;
-//   setMaxDay(31);
-//   if ((date === 'month' && value === '04') || value === '06' || value === '09' || value === '11') {
-//     setMaxDay(30);
-//   }
-//   if (value === '31') {
-//   }
-// };
