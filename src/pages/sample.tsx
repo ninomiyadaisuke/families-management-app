@@ -38,13 +38,13 @@ const Sample: NextPage = () => {
   return (
     <Layout pageTitle={'サンプル'}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/* <div>
-          <DateSelect type={'rounded'} label={'日付'} control={control} errorMeassage={errorMeassage()} />
-        </div> */}
-        <div style={{ margin: '30px' }}></div>
         <div>
-          <DateSelect type={'underLine'} label={'生年月日'} control={control} errorMeassage={errorMeassage()} />
+          <DateSelect type={'rounded'} label={'日付'} control={control} errorMeassage={errorMeassage()} />
         </div>
+        <div style={{ margin: '30px' }}></div>
+        {/* <div>
+          <DateSelect type={'underLine'} label={'生年月日'} control={control} errorMeassage={errorMeassage()} />
+        </div> */}
         <button type="submit">送信</button>
       </form>
       <p>{formData}</p>
