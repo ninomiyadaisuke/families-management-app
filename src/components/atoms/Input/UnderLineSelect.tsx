@@ -1,28 +1,26 @@
-import { VFC, useState, ChangeEvent } from 'react';
+import { VFC } from 'react';
+import { Control, useController } from 'react-hook-form';
 
 import styles from 'styles/components/atoms/under_line_select.module.scss';
 
 type Props = {
-  options: { value: string; label: string }[];
+  options: { value: string }[];
   id?: string;
+  name: 'year' | 'month' | 'day';
+  control: Control<any, object>;
 };
 
 const UnderLineSelect: VFC<Props> = (props) => {
-  const { options, id = '' } = props;
-  const [selected, setSelected] = useState(false);
-  const changeItem = (e: ChangeEvent<HTMLSelectElement>) => {
-    if (e.target.value) {
-      setSelected(true);
-    }
-  };
+  const { options, id = '', name = '', control } = props;
+  const { field } = useController({ name, control });
 
   return (
     <div className={styles.select}>
-      <select id={id} onChange={changeItem} className={selected ? '' : styles.select__initial}>
-        <option hidden>{options[0].label}</option>
+      <select id={id} name={name} {...field}>
+        <option hidden></option>
         {options.map((option) => (
-          <option key={option.label} value={option.value}>
-            {option.label}
+          <option key={option.value} value={option.value}>
+            {option.value}
           </option>
         ))}
       </select>

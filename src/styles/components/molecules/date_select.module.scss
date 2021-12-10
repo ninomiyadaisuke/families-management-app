@@ -1,0 +1,86 @@
+@import '../../variables.scss';
+
+.select {
+  position: relative;
+  label {
+    display: flex;
+    font-size: 16px;
+    width: 260px;
+    align-items: center;
+  }
+  &__error {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    font-size: 12px;
+    color: $error-primary;
+  }
+  &__rounded,
+  &__line {
+    display: flex;
+    height: 50px;
+    @extend .select;
+    &_icon {
+      position: absolute;
+      top: 4px;
+      left: 40px;
+    }
+    &_year,
+    &_month,
+    &_day {
+      position: absolute;
+      top: 10px;
+    }
+    &_md {
+      width: 100px;
+    }
+    &_xs {
+      width: 68px;
+    }
+    &_year {
+      left: 110px;
+    }
+    &_month {
+      left: 215px;
+    }
+    &_day {
+      left: 315px;
+    }
+  }
+  &__line {
+    &_md {
+      width: 66px;
+    }
+    &_xs {
+      width: 40px;
+    }
+    &_year,
+    &_month,
+    &_day {
+      top: 14px;
+    }
+    &_year {
+      left: 90px;
+    }
+    &_month {
+      left: 215px;
+    }
+    &_day {
+      left: 315px;
+    }
+  }
+  @include mq('md') {
+    display: flex;
+    &__rounded_icon {
+      top: 18px;
+      left: 50px;
+    }
+    &__error {
+      top: 50px;
+      left: 260px;      
+    }
+    label {
+      font-size: 20px;
+    }
+  }
+}
