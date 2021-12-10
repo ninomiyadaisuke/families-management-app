@@ -12,10 +12,11 @@ type Props = {
 
 const UnderLineSelect: VFC<Props> = (props) => {
   const { options, id = '', name = '', control } = props;
+  const { field } = useController({ name, control });
 
   return (
     <div className={styles.select}>
-      <select id={id} name={name}>
+      <select id={id} name={name} {...field}>
         <option hidden></option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>

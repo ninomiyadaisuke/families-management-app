@@ -1,5 +1,5 @@
 import { VFC } from 'react';
-import { Control, FieldError } from 'react-hook-form';
+import { Control } from 'react-hook-form';
 
 import { RoundedSelect, UnderLineSelect } from 'components/atoms/Input';
 import { WidthSpacer } from 'components/atoms/Utilities';
@@ -14,15 +14,11 @@ type Props = {
   label?: string;
   otosidama?: boolean;
   control: Control<any, object>;
-  errors: {
-    year?: FieldError;
-    month?: FieldError;
-    day?: FieldError;
-  };
+  errorMeassage: string;
 };
 
 const DateSelect: VFC<Props> = (props) => {
-  const { type = '', label = '', otosidama = false, control, errors } = props;
+  const { type = '', label = '', otosidama = false, control, errorMeassage = '' } = props;
   const { yearsData, monthData, dayData } = useSelectedDate(control);
 
   return (
@@ -33,10 +29,7 @@ const DateSelect: VFC<Props> = (props) => {
           <IconArea path={'/mandatory_icon.png'} width={16} height={12} />
         </div>
       )}
-      {errors.year && <p className={styles.select__error}>{errors.year.message}</p>}
-      {errors.month && <p className={styles.select__error}>{errors.month.message}</p>}
-      {errors.day && <p className={styles.select__error}>{errors.day.message}</p>}
-
+      {errorMeassage && <p className={styles.select__error}>{errorMeassage}</p>}
       {type === 'rounded' ? (
         <>
           <div className={styles.select__rounded}>
@@ -66,14 +59,12 @@ const DateSelect: VFC<Props> = (props) => {
           <p className={styles.select__line_year}>年</p>
           <WidthSpacer size={'xl'} />
           <WidthSpacer size={'sm'} />
-          <WidthSpacer size={'xs'} />
           <div className={styles.select__line_xs}>
             <UnderLineSelect options={monthData} name={'month'} control={control} />
           </div>
           <p className={styles.select__line_month}>月</p>
           <WidthSpacer size={'xl'} />
           <WidthSpacer size={'sm'} />
-          <WidthSpacer size={'xs'} />
           <div className={styles.select__line_xs}>
             <UnderLineSelect options={dayData} name={'day'} control={control} />
           </div>

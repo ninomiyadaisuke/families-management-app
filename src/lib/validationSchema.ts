@@ -11,7 +11,6 @@ export const getSchema = (otosidama: boolean, label: string) => {
       : label === '日付' && yup.string().required(`${label}を全て記入してください`),
     month: label === '日付' && yup.string().required(`${label}を全て記入してください`),
     day: label === '日付' && yup.string().required(`${label}を全て記入してください`),
-    name: yup.string().required('名前は必須です'),
   });
   return dataSchema;
 };

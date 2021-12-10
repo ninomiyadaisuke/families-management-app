@@ -13,7 +13,7 @@
     border: none;
     border-bottom: 2px solid $light-grey;
     border-radius: 0px;
-    text-indent: 10%;
+    text-indent: 30%;
     outline: none;
     color: $text-main;
     background: $bg-white;
@@ -27,8 +27,8 @@
   &::after {
     z-index: 1;
     position: absolute;
-    right: 10%;
-    top: 55%;
+    right: 5%;
+    top: 70%;
     content: '';
     width: 8px;
     height: 8px;

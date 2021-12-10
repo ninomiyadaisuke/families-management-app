@@ -5,13 +5,11 @@ import { DateSelect } from 'components/molecules/Input';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup/dist/yup.umd';
 import { getSchema } from 'lib/validationSchema';
-import { RoundedInput } from 'components/atoms/Input';
 
 const defaultValues = {
   year: '',
   month: '',
   day: '',
-  name: '',
 };
 
 const Sample: NextPage = () => {
@@ -19,7 +17,6 @@ const Sample: NextPage = () => {
   const {
     handleSubmit,
     control,
-    getValues,
     formState: { errors },
   } = useForm({
     defaultValues: defaultValues,
@@ -32,26 +29,21 @@ const Sample: NextPage = () => {
     const DateType = new Date(date.date);
   };
 
+  const errorMeassage = () => {
+    if (errors.year) return errors.year.message;
+    if (errors.month) return errors.month.message;
+    if (errors.day) return errors.day.message;
+  };
+
   return (
     <Layout pageTitle={'サンプル'}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <DateSelect type={'rounded'} label={'日付'} control={control} errors={errors} />
-        </div>
-        <div style={{ margin: '30px' }}></div>
         {/* <div>
-          <DateSelect type={'rounded'} label={'日付'} control={control} errors={errors} otosidama={true} />
+          <DateSelect type={'rounded'} label={'日付'} control={control} errorMeassage={errorMeassage()} />
         </div> */}
         <div style={{ margin: '30px' }}></div>
-        <div style={{ width: '500px' }}>
-          <RoundedInput
-            multiLine={false}
-            label={'名前'}
-            name={'name'}
-            control={control}
-            placeholder={'test'}
-            errorMessage={errors.name && errors.name.message}
-          />
+        <div>
+          <DateSelect type={'underLine'} label={'生年月日'} control={control} errorMeassage={errorMeassage()} />
         </div>
         <button type="submit">送信</button>
       </form>

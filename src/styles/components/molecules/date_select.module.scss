@@ -11,7 +11,7 @@
   &__error {
     position: absolute;
     top: 75px;
-    left: 240px;
+    left: 0;
     font-size: 12px;
     color: $error-primary;
   }
@@ -38,13 +38,13 @@
       width: 68px;
     }
     &_year {
-      left: 112px;
+      left: 110px;
     }
     &_month {
       left: 215px;
     }
     &_day {
-      left: 320px;
+      left: 315px;
     }
   }
   &__line {
@@ -57,7 +57,16 @@
     &_year,
     &_month,
     &_day {
-      top: 13px;
+      top: 14px;
+    }
+    &_year {
+      left: 90px;
+    }
+    &_month {
+      left: 215px;
+    }
+    &_day {
+      left: 315px;
     }
   }
   @include mq('md') {
@@ -68,7 +77,7 @@
     }
     &__error {
       top: 50px;
-      left: 500px;      
+      left: 260px;      
     }
     label {
       font-size: 20px;

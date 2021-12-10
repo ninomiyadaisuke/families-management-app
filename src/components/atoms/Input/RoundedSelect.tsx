@@ -17,7 +17,7 @@ const RoundedSelect: VFC<Props> = (props) => {
 
   return (
     <div className={styles.select}>
-      <i />
+      <i className={disabled ? styles.select__disabled : styles.select__valid} />
       <select id={id} disabled={disabled} {...field}>
         <option hidden></option>
         {options.map((option) => (

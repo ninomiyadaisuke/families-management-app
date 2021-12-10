@@ -27,16 +27,20 @@
   &__initial {
     color: $light-grey !important;
   }
-  i {
+  &__valid,&__disabled {
     z-index: 1;
     position: absolute;
-    right: 20%;
-    top: 50%;
+    right: 10%;
+    top: 55%;
     content: '';
     width: 8px;
     height: 8px;
     border-top: solid 2px $main;
     border-right: solid 2px $main;
     transform: rotate(135deg);
+  }
+  &__disabled {
+    border-top: solid 2px $light-grey;
+    border-right: solid 2px $light-grey;
   }
 }
