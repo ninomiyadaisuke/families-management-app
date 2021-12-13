@@ -3,7 +3,6 @@
 .input {
   label {
     font-size: 16px;
-    padding-left: 10px;
   }
   &__icon,
   &__icon_error {
@@ -54,6 +53,9 @@
   @include mq('md') {
     display: flex;
     label {
+      display: flex;
+      height: 50px;
+      align-items: center;
       font-size: 20px;
       width: 220px;
     }
