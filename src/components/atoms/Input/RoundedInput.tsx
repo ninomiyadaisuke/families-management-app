@@ -6,9 +6,9 @@ import { IconArea } from 'components/atoms/Images';
 import styles from 'styles/components/atoms/rounded_input.module.scss';
 
 type Props = {
-  multiLine: boolean;
   iconIncluded?: boolean;
   placeholder: string;
+  path?: string;
   label?: string;
   type?: string;
   rows?: number;
@@ -19,12 +19,11 @@ type Props = {
 
 const RoundedInput: VFC<Props> = (props) => {
   const {
-    multiLine = false,
     iconIncluded = false,
     placeholder = '',
+    path = '',
     label = '',
     type = '',
-    rows = 1,
     name = '',
     control,
     errorMessage = '',
@@ -36,32 +35,28 @@ const RoundedInput: VFC<Props> = (props) => {
     <div className={styles.input}>
       {label && <label htmlFor={name}>{label}</label>}
       <div className={styles.input__container}>
-        {multiLine ? (
-          <textarea id={name} placeholder={placeholder} rows={rows} {...field} />
-        ) : (
-          <>
-            <input
-              id={name}
-              className={!iconIncluded ? styles.input__icon_none : ''}
-              type={type}
-              placeholder={placeholder}
-              {...field}
-            />
-            {iconIncluded && (
-              <div className={styles.input__icon}>
-                <IconArea path={'/user_icon.png'} height={16} width={16} />
+        <>
+          <input
+            id={name}
+            className={!iconIncluded ? styles.input__icon_none : ''}
+            type={type}
+            placeholder={placeholder}
+            {...field}
+          />
+          {iconIncluded && (
+            <div className={styles.input__icon}>
+              <IconArea path={path} height={16} width={16} />
+            </div>
+          )}
+          {errorMessage && (
+            <>
+              <div className={styles.input__icon_error}>
+                <IconArea path={'/error_icon.png'} height={16} width={16} />
               </div>
-            )}
-            {errorMessage && (
-              <>
-                <div className={styles.input__icon_error}>
-                  <IconArea path={'/error_icon.png'} height={16} width={16} />
-                </div>
-                <p>{errorMessage}</p>
-              </>
-            )}
-          </>
-        )}
+              <p>{errorMessage}</p>
+            </>
+          )}
+        </>
       </div>
     </div>
   );

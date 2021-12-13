@@ -29,9 +29,9 @@ const SideByInput: VFC<Props> = (props) => {
       <div className={styles.input__container}>
         <div className={styles.input__container_size}>
           <RoundedInput
-            multiLine={false}
             iconIncluded={true}
             placeholder={'姓'}
+            path={'/user_icon.png'}
             type={'text'}
             name={'first_name'}
             control={control}
@@ -41,8 +41,7 @@ const SideByInput: VFC<Props> = (props) => {
         <WidthSpacer size={'lg'} />
         <div className={styles.input__container_size}>
           <RoundedInput
-            multiLine={false}
-            iconIncluded={true}
+            iconIncluded={false}
             placeholder={'名'}
             type={'text'}
             name={'last_name'}

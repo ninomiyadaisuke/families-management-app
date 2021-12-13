@@ -23,8 +23,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    input,
-    textarea {
+    input {
       transition: all 0.3s ease-in-out;
       outline: none;
       width: 100%;
@@ -44,11 +43,6 @@
       height: 50px;
       border-radius: 30px;
       text-indent: 36px;
-    }
-    textarea {
-      resize: none;
-      padding: 12px 0 0 18px;
-      border-radius: 20px;
     }
     p {
       position: absolute;
