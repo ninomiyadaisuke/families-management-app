@@ -1,11 +1,12 @@
 import { VFC } from 'react';
-import { Control } from 'react-hook-form';
+import { Control, FieldError } from 'react-hook-form';
 
 import { RoundedSelect, UnderLineSelect } from 'components/atoms/Input';
 import { WidthSpacer } from 'components/atoms/Utilities';
 import { IconArea } from 'components/atoms/Images';
 
 import { useSelectedDate } from 'hooks/useSelectedDate';
+import { errorMessage } from 'lib/helper';
 
 import styles from 'styles/components/molecules/date_select.module.scss';
 
@@ -14,11 +15,15 @@ type Props = {
   label?: string;
   otosidama?: boolean;
   control: Control<any, object>;
-  errorMeassage: string;
+  errors: {
+    year?: FieldError;
+    month?: FieldError;
+    day?: FieldError;
+  };
 };
 
 const DateSelect: VFC<Props> = (props) => {
-  const { type = '', label = '', otosidama = false, control, errorMeassage = '' } = props;
+  const { type = '', label = '', otosidama = false, control, errors } = props;
   const { yearsData, monthData, dayData } = useSelectedDate(control);
 
   return (
@@ -29,7 +34,7 @@ const DateSelect: VFC<Props> = (props) => {
           <IconArea path={'/mandatory_icon.png'} width={16} height={12} />
         </div>
       )}
-      {errorMeassage && <p className={styles.select__error}>{errorMeassage}</p>}
+      {errorMessage(errors.year) && <p className={styles.select__error}>{errorMessage(errors.year)}</p>}
       {type === 'rounded' ? (
         <>
           <div className={styles.select__rounded}>
