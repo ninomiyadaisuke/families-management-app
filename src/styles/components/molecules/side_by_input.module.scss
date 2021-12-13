@@ -1,0 +1,33 @@
+@import '../molecules/date_select.module.scss';
+
+.input {
+  position: relative;
+  label {
+    font-size: 16px;
+  }
+  &__container {
+    display: flex;
+    &_size {
+      width: 150px;
+    }
+  }
+  &__icon {
+    position: absolute;
+    top: 5px;
+    left: 40px;
+  }
+  @include mq('md'){
+    display: flex;
+    label {
+      width: 260px;
+      font-size: 20px;
+    }
+    &__icon {
+      top: 7px;
+      left: 50px;
+    }
+    &__container_size {
+      width: 260px;
+    }
+  }
+}
