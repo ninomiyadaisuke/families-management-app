@@ -8,6 +8,8 @@ import styles from 'styles/components/atoms/rounded_input.module.scss';
 type Props = {
   iconIncluded?: boolean;
   placeholder: string;
+  mandatory: boolean;
+  size?: 'full' | 'midule';
   path?: string;
   label?: string;
   type?: string;
@@ -21,6 +23,8 @@ const RoundedInput: VFC<Props> = (props) => {
   const {
     iconIncluded = false,
     placeholder = '',
+    mandatory = false,
+    size = '',
     path = '',
     label = '',
     type = '',
@@ -29,12 +33,27 @@ const RoundedInput: VFC<Props> = (props) => {
     errorMessage = '',
   } = props;
 
-  const { field } = useController({ name, control });
+  const className = (() => {
+    switch (size) {
+      case 'full':
+        return `${styles.input__container_full}`;
+      case 'midule':
+        return `${styles.input__container_midule}`;
+      default:
+        return `${styles.input__container}`;
+    }
+  })();
 
+  const { field } = useController({ name, control });
   return (
     <div className={styles.input}>
       {label && <label htmlFor={name}>{label}</label>}
-      <div className={styles.input__container}>
+      {mandatory && (
+        <div className={styles.input__icon_mandatory}>
+          <IconArea path={'/mandatory_icon.png'} width={16} height={12} />
+        </div>
+      )}
+      <div className={className}>
         <>
           <input
             id={name}

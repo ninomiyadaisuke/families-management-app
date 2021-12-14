@@ -31,6 +31,7 @@ const SideByInput: VFC<Props> = (props) => {
           <RoundedInput
             iconIncluded={true}
             placeholder={'姓'}
+            mandatory={false}
             path={'/user_icon.png'}
             type={'text'}
             name={'first_name'}
@@ -43,6 +44,7 @@ const SideByInput: VFC<Props> = (props) => {
           <RoundedInput
             iconIncluded={false}
             placeholder={'名'}
+            mandatory={false}
             type={'text'}
             name={'last_name'}
             control={control}
