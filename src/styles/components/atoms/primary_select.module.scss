@@ -2,54 +2,70 @@
 
 .select {
   position: relative;
-  display: block;
-  width: 100%;
-  height: 50px;
+  cursor: pointer;
   font-size: 20px;
   color: #ffffff;
-  .arrow {
+  &__icon {
     position: absolute;
-    right: 40px;
-    content: '';
-    width: 12px;
-    height: 12px;
-    border-top: solid 2px #ffffff;
-    border-right: solid 2px #ffffff;
-    transform: rotate(315deg);
-    top: 22px;
-    &_down {
-      @extend .arrow;
-      transform: rotate(135deg);
-      top: 18px;
-    }
+    top: 0px;
+    left: 40px;
   }
-  .select_common {
-    display: block;
-    text-align: center;
-    width: 100%;
-    padding: 10px;
-    cursor: pointer;
-    border: 1px solid #707070;
-  }
-  .label {
-    @extend .select_common;
-    background: #3da9fc;
-  }
-  .title {
-    @extend .select_common;
+  &__label {
     font-size: 16px;
-    background: #ffffff;
     color: $main;
-    border-top: none;
+    height: 50px;
+    width: 220px;
   }
-  label {
+  input {
+    display: none;
+  }
+  &__container {
     span {
-      &:hover {
-        background: #e5e5e5;
+      display: block;
+      padding: 10px;
+      text-align: center;
+      width: 330px;
+      height: 50px;
+      background: $secondary;
+      border: 1px solid $light-grey;
+    }
+    label {
+      span {
+        &:hover {
+          background: #e5e5e5;
+        }
+      }
+      input {
+        display: none;
       }
     }
-    input {
-      display: none;
+    .title {
+      cursor: pointer;
+      background: #ffffff;
+      color: $main;
+      border-top: none;
+    }
+  }
+  @include mq('md') {
+    display: flex;
+    &__label {
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+    }
+    &__icon {
+      position: absolute;
+      top: 10px;
+      left: 50px;
+    }
+    span {
+      display: block;
+      padding: 10px;
+      text-align: center;
+      width: 480px;
+      height: 50px;
+      background: $secondary;
+      border: 1px solid $light-grey;
     }
   }
 }
