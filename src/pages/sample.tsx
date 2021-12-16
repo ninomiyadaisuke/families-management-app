@@ -50,7 +50,7 @@ const Sample: NextPage = () => {
           register={register}
           label={'記録タイプ'}
           name={'present_type'}
-          relationship={'子供'}
+          relationship={'世帯主'}
           type={wacth}
           errorMessage={errorMessage(errors.present_type)}
         />
