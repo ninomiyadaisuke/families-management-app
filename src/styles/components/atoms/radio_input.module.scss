@@ -35,9 +35,11 @@
     &_disabled {
       @extend .input__label;
       color: $light-grey;
-      &::before,
-      &::after {
+      &::before {
         border: 1px solid $light-grey;
+      }
+      &::after {
+        background: #ffffff;
       }
     }
   }
@@ -45,7 +47,7 @@
     opacity: 1;
   }
   @include mq('md') {
-    &__label{
+    &__label {
       font-size: 20px;
     }
   }
