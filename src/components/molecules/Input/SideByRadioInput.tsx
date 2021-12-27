@@ -8,34 +8,44 @@ import { WidthSpacer } from 'components/atoms/Utilities';
 import styles from 'styles/components/molecules/side_by_radio_input.module.scss';
 
 type Props = {
-  label: string;
+  label: '登録タイプ' | '記録タイプ';
   name: string;
-  register: UseFormRegister<{ [key: string]: string }>;
-  relationship?: '世帯主' | '配偶者' | '子供' | '親' | '同居人';
-  type?: string; //useWatchを使用する
+  register: UseFormRegister<{ present_type: string }>;
   errorMessage: string;
+  typeArray?: string[]; //transaction_type: '',present_type: '',relationship: '', //useWatch使用
 };
 
 const SideByRadioInput: VFC<Props> = (props) => {
-  const { register, label = '', name = '', relationship = '', type = '', errorMessage = '' } = props;
+  const { register, label = '', name = '', errorMessage = '', typeArray = ['', '', ''] } = props;
+
+  const radioDisabled = (arry: string[], check: string) => {
+    if (arry[0] === 'お年玉' && arry[2] === '子供') {
+      if ((arry[1] === '' || arry[1] === '渡した') && check === '渡した') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    if (arry[0] === 'お年玉' && arry[2] === '世帯主') {
+      if ((arry[1] === '' || arry[1] === '貰った') && check === '貰った') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
 
   return (
     <div className={styles.input}>
-      <label>{label}</label>
+      <label htmlFor={`${name}1`}>{label}</label>
       <div className={styles.input__icon}>
         <IconArea path={'/mandatory_icon.png'} width={16} height={12} />
       </div>
       <div className={styles.input__container}>
         <RadioInput
           register={register}
-          label={label === '登録タイプ' ? 'お年玉' : '貰った'}
-          disabled={
-            (relationship === '世帯主' ||
-              relationship === '同居人' ||
-              relationship === '親' ||
-              relationship === '配偶者') &&
-            type === 'お年玉'
-          }
+          value={label === '登録タイプ' ? 'お年玉' : '貰った'}
+          disabled={radioDisabled(typeArray, '貰った')}
           id={`${name}1`}
           name={name}
         />
@@ -43,8 +53,8 @@ const SideByRadioInput: VFC<Props> = (props) => {
         <WidthSpacer size={'sm'} />
         <RadioInput
           register={register}
-          label={label === '記録タイプ' ? '渡した' : 'プレゼント'}
-          disabled={relationship === '子供' && type === 'お年玉'}
+          value={label === '記録タイプ' ? '渡した' : 'プレゼント'}
+          disabled={radioDisabled(typeArray, '渡した')}
           id={name}
           name={name}
         />

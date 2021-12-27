@@ -1,5 +1,5 @@
 import { VFC } from 'react';
-import { useController, Control } from 'react-hook-form';
+import { useController, Control, UseFormRegister } from 'react-hook-form';
 
 import { IconArea } from 'components/atoms/Images';
 

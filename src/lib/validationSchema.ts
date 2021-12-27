@@ -1,8 +1,9 @@
 import * as yup from 'yup';
 //後々消します
+
 export const testSchema = yup.object({
-  present_type: yup.string().required('必須項目です'),
-  transaction_type: yup.string().required('必須項目です'),
+  present_type: yup.string().nullable().required('必須項目です'),
+  transaction_type: yup.string().nullable().required('必須項目です'),
 });
 
 export const getSchema = (otosidama: boolean, label: string) => {
