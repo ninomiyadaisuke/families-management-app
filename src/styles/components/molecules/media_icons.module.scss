@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  width: 170px;
+  @include mq('md') {
+    width: 450px;
+  }
+}
