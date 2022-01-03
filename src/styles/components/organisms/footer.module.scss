@@ -1,0 +1,67 @@
+@import '../../variables.scss';
+
+.footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 200px;
+  background-color: $bg-bule;
+  &__logo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+  }
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+    p {
+      font-size: 16px;
+      cursor: pointer;
+      color:$link-footer;
+    }
+  }
+  &__icons {
+    position: absolute;
+    top: 120px;
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    transform: translate(calc(50vw - 50%));
+  }
+  &__copyright {
+    font-size: 4px;
+    letter-spacing: 0;
+    color:$link-footer;
+  }
+  @include mq('md') {
+    height: 250px;
+    &__copyright {
+      font-size: 16px;
+    }
+    &__icons {
+      top: 70px;
+      left: 30%;
+    }
+    &__links {
+      height: 150px;
+      p {
+        font-size: 16px;
+      }
+    }
+    &__logo {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  @include mq('lg') {
+    height: 300px;
+    &__links {
+      height: 190px;
+    }
+  }
+}

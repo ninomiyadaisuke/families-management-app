@@ -5,6 +5,9 @@
   justify-content: space-between;
   width: 170px;
   @include mq('md') {
+    width: 280px;
+  }
+  @include mq('lg') {
     width: 450px;
   }
 }

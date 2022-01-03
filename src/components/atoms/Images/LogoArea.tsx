@@ -1,5 +1,6 @@
 import { VFC, memo } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import styles from 'styles/components/atoms/logo.module.scss';
 
@@ -8,10 +9,12 @@ type Props = {
   logoType?: string;
   height: number;
   width: number;
+  url?: string;
 };
 
 const LogoArea: VFC<Props> = memo((props) => {
-  const { path = '', height = 0, width = 0, logoType = '' } = props;
+  const { path = '', height = 0, width = 0, logoType = '', url } = props;
+  const router = useRouter();
 
   const className = (() => {
     switch (logoType) {
@@ -24,7 +27,15 @@ const LogoArea: VFC<Props> = memo((props) => {
 
   return (
     <div className={className}>
-      <Image src={path} height={height} width={width} objectFit="scale-down" />
+      <Image
+        src={path}
+        height={height}
+        width={width}
+        objectFit="scale-down"
+        onClick={() => {
+          router.push(url);
+        }}
+      />
     </div>
   );
 });
