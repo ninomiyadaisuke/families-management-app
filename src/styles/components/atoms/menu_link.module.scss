@@ -1,0 +1,26 @@
+@import '../../variables.scss';
+
+.link {
+  display: inline-block;
+  list-style: none;
+  font-size: 24px;
+  font-weight: 300;
+  height: auto;
+  a {
+    text-decoration: none;
+    color: $main;
+    &:hover {
+      color: $main;
+    }
+  }
+  @include mq('md') {
+    font-size: 36px;
+    &__underline {
+      margin-top: 28px;
+      height: 3px;
+      width: 100%;
+      background: $main;
+      border-radius: 20px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+import { VFC } from 'react';
+import Link from 'next/link';
+
+import styles from 'styles/components/atoms/menu_link.module.scss';
+
+type Props = {
+  path: string;
+  name: string;
+  active: boolean;
+};
+
+const MenuLink: VFC<Props> = (props) => {
+  const { path = '', name = '', active = false } = props;
+  return (
+    <li className={styles.link}>
+      <Link href={path}>
+        <a>{name}</a>
+      </Link>
+      {active && <div className={styles.link__underline} />}
+    </li>
+  );
+};
+
+export default MenuLink;
