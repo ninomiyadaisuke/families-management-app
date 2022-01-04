@@ -1,0 +1,33 @@
+@import '../../variables.scss';
+
+.links {
+  @mixin text {
+    padding-bottom: 0;
+    display: flex;
+  }
+  text-align: center;
+  height: 100%;
+  &__link {
+    padding-bottom: 30px;
+    &_active {
+      padding-bottom: 30px;
+    }
+  }
+  @include mq('md') {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    &__link {
+      @include text();
+      align-items: center;
+      &_active {
+        @include text();
+        align-items: flex-end;
+      }
+    }
+  }
+  @include mq('lg') {
+    width: 900px;
+  }
+}

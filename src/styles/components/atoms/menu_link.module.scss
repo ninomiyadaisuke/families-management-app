@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 .link {
-  display: inline-block;
+  display: block;
   list-style: none;
   font-size: 24px;
   font-weight: 300;
@@ -14,9 +14,8 @@
     }
   }
   @include mq('md') {
-    font-size: 36px;
     &__underline {
-      margin-top: 28px;
+      margin-top: 20px;
       height: 3px;
       width: 100%;
       background: $main;
